@@ -1,0 +1,7 @@
+.spoiler-text {
+    display: inline !important;
+	color: grey;
+  font-style: italic;
+  line-height: 1.2em;
+  border: 1px solid #252525;
+}

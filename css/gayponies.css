@@ -1,0 +1,5 @@
+a[href*="/user_pictures/"] {
+    background: #911 ;
+    display: inline-block;
+}
+/* THIS IS ADDED BY showSpoiler.js */
