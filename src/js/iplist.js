@@ -1,7 +1,8 @@
 chrome.storage.sync.get({
     showcommentipbutton: false,
 	showcommentbanbutton: false,
-	showanoniphash: false
+	showanoniphash: false,
+	showimagespoiler: false
   }, function(items) {
 	if(items.showcommentipbutton)
 	{
@@ -18,7 +19,13 @@ chrome.storage.sync.get({
 			return HumanHash.humanize(str.split(", '")[1].split("'")[0]); 
 		});
 	}
-	if(items.showcommentbanbutton || items.showcommentipbutton || items.showanoniphash)
+	if(items.showimagespoiler)
+	{
+		$(window).load(function(){
+			$('.spoilerImg').click();
+		});
+	}
+	if(items.showcommentbanbutton || items.showcommentipbutton || items.showanoniphash || items.showimagespoiler)
 	{
 	  chrome.runtime.onMessage.addListener(
 		  function(request, sender, sendResponse) {
@@ -38,6 +45,10 @@ chrome.storage.sync.get({
 						var str = $(this).attr('onclick')
 						return HumanHash.humanize(str.split(", '")[1].split("'")[0]); 
 					});
+				}
+				if(items.showimagespoiler)
+				{
+					$('.spoilerImg').click();
 				}
 			}
 	});

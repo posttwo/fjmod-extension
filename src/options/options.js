@@ -17,6 +17,7 @@ function save_options() {
   var ishovereffect = document.getElementById('hovereffect').checked;
   var isshownewuseripbutotn = document.getElementById('shownewuseripbutotn').checked;
   var isautocomplete = document.getElementById('autocomplete').checked;
+  var isshowimagespoiler = document.getElementById('showimagespoiler').checked;
 
 
   chrome.storage.sync.set({
@@ -37,7 +38,8 @@ function save_options() {
 	hovereffect: ishovereffect,
 	shownewuseripbutotn: isshownewuseripbutotn,
 	autocomplete: isautocomplete,
-	welcomemessage: iswelcomeMessage
+	welcomemessage: iswelcomeMessage,
+	showimagespoiler: isshowimagespoiler
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -68,7 +70,8 @@ function restore_options() {
   shownewuseripbutotn: false,
   autocomplete: false,
   accesstoken: "",
-  welcomemessage: ""
+  welcomemessage: "",
+  showimagespoiler: false
   }, function(items) {
     document.getElementById('sidebarupdate').checked = items.sidebarupdate;
 	document.getElementById('sidebarreplace').checked = items.sidebarreplace;
@@ -88,6 +91,7 @@ function restore_options() {
 	document.getElementById('hovereffect').checked = items.hovereffect;
 	document.getElementById('shownewuseripbutotn').checked = items.shownewuseripbutotn;
 	document.getElementById('autocomplete').checked = items.autocomplete;
+	document.getElementById('showimagespoiler').checked = items.showimagespoiler;
   });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
