@@ -45,6 +45,24 @@ chrome.extension.onMessage.addListener(
         });
 		sendResponse('thanks');
 	}
+	if(request.action == 'request_user_ban')
+	{
+		 chrome.tabs.create({
+            url: chrome.extension.getURL('/src/popups/requestban.html?user=' + request.user),
+            active: false
+        }, function(tab) {
+            // After the tab has been created, open a window to inject the tab
+            chrome.windows.create({
+                tabId: tab.id,
+                type: 'popup',
+                focused: true,
+                height: 300,
+                width: 300
+                // incognito, top, left, ...
+            });
+        });
+		sendResponse('thanks');
+	}
   });
 /*chrome.webRequest.onBeforeRequest.addListener(
   function() {
