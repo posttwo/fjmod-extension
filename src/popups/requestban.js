@@ -15,7 +15,7 @@ function getUrlParameter(sParam)
 function getModList(){
 	return $.ajax({
 		type: "GET",
-		url: "https://funnyjunk.com/comment/anonymous/content/4878704/-999/checked/parent_id/undefined/1/desc/125719964"
+		url: "https://funnyjunk.com/comment/anonymous/content/5101341/-999/checked/parent_id/undefined/1/desc/125719964"
 	});
 }
 
@@ -24,7 +24,7 @@ function requestUserBan(msg, user, activeMods)
 	console.log(activeMods);
     $.ajax({
       type: "POST",
-      url: "https://funnyjunk.com/comment/add/content/4503997",
+      url: "https://funnyjunk.com/comment/add/content/4878704",
       data: { mainid: 12, contentId: 4878704, replyCommentId: 139223807, do:"comment", username:"anonymous", text: "**Requesting Ban For: ** https://www.funnyjunk.com/user/" + user + "\n **Reason: ** " + msg + "\n **Mentions: **[spoiler]" + activeMods.join(", ") + "[/spoiler] \n Please reply to this comment once you've banned the requested user"},
       success: function(html){
         console.log('added note');
