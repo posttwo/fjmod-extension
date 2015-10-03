@@ -1,4 +1,11 @@
-chrome.extension.sendMessage({action: "notify_load"}, function(response) {
+var s = document.createElement('script');
+		// TODO: add "script.js" to web_accessible_resources in manifest.json
+		s.src = chrome.extension.getURL('src/inject/bugfix.js');
+		s.onload = function() {
+			this.parentNode.removeChild(this);
+		};
+		(document.head||document.documentElement).appendChild(s);
+/*chrome.extension.sendMessage({action: "notify_load"}, function(response) {
 	var readyStateCheckInterval = setInterval(function() {
 	if (document.readyState === "complete") {
 		clearInterval(readyStateCheckInterval);
@@ -9,7 +16,7 @@ chrome.extension.sendMessage({action: "notify_load"}, function(response) {
 		
 		var s = document.createElement('script');
 		// TODO: add "script.js" to web_accessible_resources in manifest.json
-		s.src = chrome.extension.getURL('src/js/displayLatest.js');
+		s.src = chrome.extension.getURL('src/inject/bugfix.js');
 		s.onload = function() {
 			this.parentNode.removeChild(this);
 		};
@@ -25,4 +32,4 @@ chrome.extension.sendMessage({action: "notify_load"}, function(response) {
 		console.log('EOL');
 	}
 	}, 10);
-});
+});*/

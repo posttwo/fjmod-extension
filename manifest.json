@@ -1,6 +1,6 @@
 {
   "name": "FJ MODTOOL",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "manifest_version": 2,
   "description": "Does Mod Stuff",
   "homepage_url": "http://funnyjunk.com",
@@ -48,6 +48,15 @@
 		"src/js/jquery.qtip.min.js",
 		"src/js/userHover.js",
 		"src/js/completer.js"
+	  ]
+    },
+	{
+	"run_at": "document_start",
+      "matches": [
+        "https://*.funnyjunk.com/sfw_mod/*"
+      ],
+	  "js": [
+		"src/inject/inject.js"
 	  ]
     },
 	{
@@ -168,6 +177,7 @@
   ],
   "web_accessible_resources": [
     "src/js/*",
+	"src/inject/bugfix.js",
 	"css/*",
 	"json/*"
   ]
