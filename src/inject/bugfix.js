@@ -1,1 +1,0 @@
-var contentId = 000000;
