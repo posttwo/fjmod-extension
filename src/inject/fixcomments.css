@@ -1,0 +1,4 @@
+img, .sbmtBttn input, .sbmtBttn button, .sbmtBttnSmall input, .sbmtBttnSmall button, .plusButton, .comExpCol, #commentsList .r span, glyphicon glyphicon-menu-hamburger, #commentsList .r .thUp, #commentsList .r .thDn, .comExpColPanel { height: 0 !important; width: 0 !important; position: absolute !important;} 
+.sbmtBttn input, .sbmtBttn button, .sbmtBttnSmall input, .sbmtBttnSmall button, .modBtn { 
+border-radius: 0 !important; } 
+body{color: white !important;}

@@ -1,6 +1,6 @@
 {
   "name": "FJ MODTOOL",
-  "version": "2.4.1",
+  "version": "2.4.5",
   "manifest_version": 2,
   "description": "Does Mod Stuff",
   "homepage_url": "http://funnyjunk.com",
@@ -53,12 +53,31 @@
 	{
 	"run_at": "document_end",
       "matches": [
+        "https://funnyjunk.com/modboard/*"
+      ],
+      "css": [
+        "src/inject/fixcomments.css"
+      ]
+    },
+	{
+	"run_at": "document_start",
+      "matches": [
+        "https://*.funnyjunk.com/sfw_mod/*"
+      ],
+	  "js": [
+		"src/inject/inject.js"
+	  ]
+    },
+	{
+	"run_at": "document_end",
+      "matches": [
         "https://*.funnyjunk.com/*",
 		"http://*.feministactivism.org/*"
       ],
 	  "exclude_matches": [
 		"*://*/*user/*",
-		"*://*/*sfw_mod/*"
+		"*://*/*sfw_mod/*",
+		"*://*/*modboard/*"
 	  ],
 	  "js": [
 		"src/js/humanhash.js",
@@ -168,6 +187,7 @@
   ],
   "web_accessible_resources": [
     "src/js/*",
+	"src/inject/bugfix.js",
 	"css/*",
 	"json/*"
   ]
