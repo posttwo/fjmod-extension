@@ -18,6 +18,7 @@ function save_options() {
   var isshownewuseripbutotn = document.getElementById('shownewuseripbutotn').checked;
   var isautocomplete = document.getElementById('autocomplete').checked;
   var isshowimagespoiler = document.getElementById('showimagespoiler').checked;
+  var interactivedialog = document.getElementById('interactivedialog').checked;
 
 
   chrome.storage.sync.set({
@@ -39,7 +40,8 @@ function save_options() {
 	shownewuseripbutotn: isshownewuseripbutotn,
 	autocomplete: isautocomplete,
 	welcomemessage: iswelcomeMessage,
-	showimagespoiler: isshowimagespoiler
+	showimagespoiler: isshowimagespoiler,
+	interactivedialog: interactivedialog
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -71,7 +73,8 @@ function restore_options() {
   autocomplete: false,
   accesstoken: "",
   welcomemessage: "",
-  showimagespoiler: false
+  showimagespoiler: false,
+  interactivedialog: false,
   }, function(items) {
     document.getElementById('sidebarupdate').checked = items.sidebarupdate;
 	document.getElementById('sidebarreplace').checked = items.sidebarreplace;
@@ -92,6 +95,7 @@ function restore_options() {
 	document.getElementById('shownewuseripbutotn').checked = items.shownewuseripbutotn;
 	document.getElementById('autocomplete').checked = items.autocomplete;
 	document.getElementById('showimagespoiler').checked = items.showimagespoiler;
+	document.getElementById('interactivedialog').checked = items.interactivedialog;
   });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
