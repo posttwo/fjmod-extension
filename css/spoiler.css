@@ -1,5 +1,5 @@
 .spoiler-text {
-   opacity: 1;
+   opacity: 1 !important;
 	color: grey;
   font-style: italic;
   line-height: 1.2em;
