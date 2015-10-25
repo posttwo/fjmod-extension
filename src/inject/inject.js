@@ -1,4 +1,3 @@
-chrome.extension.sendMessage({action: "notify_load"}, function(response) {
 	var readyStateCheckInterval = setInterval(function() {
 	if (document.readyState === "complete") {
 		clearInterval(readyStateCheckInterval);
@@ -7,13 +6,20 @@ chrome.extension.sendMessage({action: "notify_load"}, function(response) {
 		// This part of the script triggers when page is done loading
 		//console.log("%c PT_AUTH OK. READ_WRITE_10", 'color: green');
 		
-		var s = document.createElement('script');
-		// TODO: add "script.js" to web_accessible_resources in manifest.json
-		s.src = chrome.extension.getURL('src/js/displayLatest.js');
-		s.onload = function() {
-			this.parentNode.removeChild(this);
-		};
-		(document.head||document.documentElement).appendChild(s);
+		chrome.storage.sync.get({
+			nativenotifications: false,
+		  }, function(items) {
+			if(items.nativenotifications)
+			{
+				var s = document.createElement('script');
+				// TODO: add "script.js" to web_accessible_resources in manifest.json
+				s.src = chrome.extension.getURL('src/js/nativeNotifications.js');
+				s.onload = function() {
+					this.parentNode.removeChild(this);
+				};
+				(document.head||document.documentElement).appendChild(s);
+			}
+		  });
 		// ----------------------------------------------------------
 		// Pass any messages to background
 		window.addEventListener("message", function(event) {
@@ -25,4 +31,3 @@ chrome.extension.sendMessage({action: "notify_load"}, function(response) {
 		console.log('EOL');
 	}
 	}, 10);
-});

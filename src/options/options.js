@@ -19,6 +19,7 @@ function save_options() {
   var isautocomplete = document.getElementById('autocomplete').checked;
   var isshowimagespoiler = document.getElementById('showimagespoiler').checked;
   var interactivedialog = document.getElementById('interactivedialog').checked;
+  var nativenotifications = document.getElementById('nativenotifications').checked;
 
 
   chrome.storage.sync.set({
@@ -41,7 +42,8 @@ function save_options() {
 	autocomplete: isautocomplete,
 	welcomemessage: iswelcomeMessage,
 	showimagespoiler: isshowimagespoiler,
-	interactivedialog: interactivedialog
+	interactivedialog: interactivedialog,
+	nativenotifications: nativenotifications
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -75,6 +77,7 @@ function restore_options() {
   welcomemessage: "",
   showimagespoiler: false,
   interactivedialog: false,
+  nativenotifications: false,
   }, function(items) {
     document.getElementById('sidebarupdate').checked = items.sidebarupdate;
 	document.getElementById('sidebarreplace').checked = items.sidebarreplace;
@@ -96,6 +99,7 @@ function restore_options() {
 	document.getElementById('autocomplete').checked = items.autocomplete;
 	document.getElementById('showimagespoiler').checked = items.showimagespoiler;
 	document.getElementById('interactivedialog').checked = items.interactivedialog;
+	document.getElementById('nativenotifications').checked = items.nativenotifications;
   });
 }
 document.addEventListener('DOMContentLoaded', restore_options);

@@ -7,7 +7,7 @@ chrome.runtime.onInstalled.addListener(function(details) {
 });
 
 
-
+var lastNotificationTab = '';
 chrome.extension.onMessage.addListener(
   function(request, sender, sendResponse) {
 	console.log('%c Received ChromeMessage: ' + request.action, 'color: green');
@@ -25,6 +25,22 @@ chrome.extension.onMessage.addListener(
 	{
 		console.log('Received got_contentId');
 		console.log(request.data);
+		sendResponse();
+	}
+	if(request.action == 'got_notification')
+	{
+		var title = request.data.alert[0].t.replace(/<(?:.|\n)*?>/gm, '');
+		var text = request.data.alert[0].tx.replace(/<(?:.|\n)*?>/gm, '');
+		//lastNotificationTab = request.data.alert[0].t.match(/href="([^"]*)/)[1];
+		var td = request.data.alert[0].t.match(/href="([^"]*)/g)[1];
+		lastNotificationTab = td.match(/href="([^"]*)/)[1];
+		var options = {
+		  type: "basic",
+		  title: title,
+		  message: text,
+		  iconUrl: "/icons/fj128.png"
+		}
+		chrome.notifications.create("FJ-ALERT-NOTIFICATION", options);
 		sendResponse();
 	}
 	if(request.action == 'addnote')
@@ -64,6 +80,13 @@ chrome.extension.onMessage.addListener(
 		sendResponse('thanks');
 	}
   });
+  
+  chrome.notifications.onClicked.addListener(function(notificationId){
+	  if(notificationId === "FJ-ALERT-NOTIFICATION"){
+		  chrome.tabs.create({url: lastNotificationTab});
+	  }
+  })
+
 /*chrome.webRequest.onBeforeRequest.addListener(
   function() {
 	  console.log('%c[PATCH] STOPPED REQUEST TO THUMBNAIL', 'background: yellow');
@@ -100,7 +123,6 @@ chrome.webRequest.onCompleted.addListener(
     },
     {urls: ["*://*.funnyjunk.com/newusers/*"]}
 );
-
 
 //CLOUD MESSAGING
 
