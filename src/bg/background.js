@@ -29,6 +29,7 @@ chrome.extension.onMessage.addListener(
 	}
 	if(request.action == 'got_notification')
 	{
+		console.log('running notification')
 		var title = request.data.alert[0].t.replace(/<(?:.|\n)*?>/gm, '');
 		var text = request.data.alert[0].tx.replace(/<(?:.|\n)*?>/gm, '');
 		//lastNotificationTab = request.data.alert[0].t.match(/href="([^"]*)/)[1];
@@ -40,7 +41,7 @@ chrome.extension.onMessage.addListener(
 		  message: text,
 		  iconUrl: "/icons/fj128.png"
 		}
-		chrome.notifications.create("FJ-ALERT-NOTIFICATION", options);
+		chrome.notifications.create("", options);
 		sendResponse();
 	}
 	if(request.action == 'addnote')
@@ -82,9 +83,7 @@ chrome.extension.onMessage.addListener(
   });
   
   chrome.notifications.onClicked.addListener(function(notificationId){
-	  if(notificationId === "FJ-ALERT-NOTIFICATION"){
-		  chrome.tabs.create({url: lastNotificationTab});
-	  }
+	chrome.tabs.create({url: lastNotificationTab});
   })
 
 /*chrome.webRequest.onBeforeRequest.addListener(
