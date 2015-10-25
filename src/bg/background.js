@@ -7,7 +7,15 @@ chrome.runtime.onInstalled.addListener(function(details) {
 });
 
 
-var lastNotificationTab = '';
+var lastNotificationTab = {};
+
+function guidGenerator() {
+    var S4 = function() {
+       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    };
+    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
+
 chrome.extension.onMessage.addListener(
   function(request, sender, sendResponse) {
 	console.log('%c Received ChromeMessage: ' + request.action, 'color: green');
@@ -29,19 +37,23 @@ chrome.extension.onMessage.addListener(
 	}
 	if(request.action == 'got_notification')
 	{
-		console.log('running notification')
-		var title = request.data.alert[0].t.replace(/<(?:.|\n)*?>/gm, '');
-		var text = request.data.alert[0].tx.replace(/<(?:.|\n)*?>/gm, '');
-		//lastNotificationTab = request.data.alert[0].t.match(/href="([^"]*)/)[1];
-		var td = request.data.alert[0].t.match(/href="([^"]*)/g)[1];
-		lastNotificationTab = td.match(/href="([^"]*)/)[1];
-		var options = {
-		  type: "basic",
-		  title: title,
-		  message: text,
-		  iconUrl: "/icons/fj128.png"
-		}
-		chrome.notifications.create("", options);
+		request.data.alert.forEach(function(noti)
+		{
+			console.log('running notification')
+			var title = noti.t.replace(/<(?:.|\n)*?>/gm, '');
+			var text = noti.tx.replace(/<(?:.|\n)*?>/gm, '');
+			var guid = guidGenerator();
+			//lastNotificationTab = request.data.alert[0].t.match(/href="([^"]*)/)[1];
+			var td = noti.t.match(/href="([^"]*)/g)[1];
+			lastNotificationTab["ALERT-" + guid] = td.match(/href="([^"]*)/)[1];
+			var options = {
+			  type: "basic",
+			  title: title,
+			  message: text,
+			  iconUrl: "/icons/fj128.png"
+			}
+			chrome.notifications.create("ALERT-" + guid, options);
+		});
 		sendResponse();
 	}
 	if(request.action == 'addnote')
@@ -83,7 +95,12 @@ chrome.extension.onMessage.addListener(
   });
   
   chrome.notifications.onClicked.addListener(function(notificationId){
-	chrome.tabs.create({url: lastNotificationTab});
+
+	  var url = lastNotificationTab[notificationId];;
+	  if (url.substring(0, 4) != "http") {
+		  url = "https://funnyjunk.com" + url;  //@TODO MAKE IT FJ2 COMPATIBLE
+	  }
+	chrome.tabs.create({url: url});
   })
 
 /*chrome.webRequest.onBeforeRequest.addListener(
