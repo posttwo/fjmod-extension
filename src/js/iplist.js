@@ -22,6 +22,7 @@ chrome.storage.sync.get({
 	if(items.showimagespoiler)
 	{
 		$(window).load(function(){
+			$('.spoilerImg').parent().parent().prev().prev().prev().prev().append(' <span style="color: red">*SPOILER*</span>')
 			$('.spoilerImg').click();
 		});
 	}
@@ -48,6 +49,7 @@ chrome.storage.sync.get({
 				}
 				if(items.showimagespoiler)
 				{
+					$('.spoilerImg').parent().parent().prev().prev().prev().prev().append(' <span style="color: red">*SPOILER*</span>')
 					$('.spoilerImg').click();
 				}
 			}

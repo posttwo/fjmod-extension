@@ -25,11 +25,15 @@ function requestUserBan(msg, user, activeMods)
     $.ajax({
       type: "POST",
       url: "https://funnyjunk.com/comment/add/content/4878704",
-      data: { mainid: 12, contentId: 4878704, replyCommentId: 139223807, do:"comment", username:"anonymous", text: "**Requesting Ban For: ** https://www.funnyjunk.com/user/" + user + "\n **Reason: ** " + msg + "\n **Mentions: **[spoiler]" + activeMods.join(", ") + "[/spoiler] \n Please reply to this comment once you've banned the requested user"},
+      data: { mainid: 12, contentId: 4878704, replyCommentId: 140267626, do:"comment", username:"anonymous", text: "**Requesting Ban For: ** https://www.funnyjunk.com/user/" + user + "\n **Reason: ** " + msg + "\n **Mentions: **[spoiler]" + activeMods.join(", ") + "[/spoiler] \n Please reply to this comment once you've banned the requested user"},
       success: function(html){
         console.log('added note');
         window.close();
-    }
+    },
+	error: function(html){
+		alert('It did not post');
+		window.close();
+	}
 });
 }
 var user = getUrlParameter('user');
@@ -41,7 +45,7 @@ $("#submitter").click( function()
 	getModList().done(function(data){
 			var activeMods = $(".adminComment > span", data).contents().eq(1).text();
 			var arrayOfActiveMods = activeMods.split(", ");
-			var arrayOfBannableMods = ['joshlol', 'posttwo', 'corporate', 'EdwardNigma', 'lightarcanine', 'lucky', 'Marker', 'Pleinair', 'postingloudly', 'tridaak', 'yojo', 'admin'];
+			var arrayOfBannableMods = ['joshlol', 'corporate', 'EdwardNigma', 'lightarcanine', 'lucky', 'Marker', 'Pleinair', 'postingloudly', 'tridaak', 'yojo', 'admin'];
 			var arrayOfActiveBannableMods = arrayOfActiveMods.filter(function(n) {
 								return arrayOfBannableMods.indexOf(n) != -1
 							});
