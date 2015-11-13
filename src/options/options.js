@@ -20,6 +20,7 @@ function save_options() {
   var isshowimagespoiler = document.getElementById('showimagespoiler').checked;
   var interactivedialog = document.getElementById('interactivedialog').checked;
   var nativenotifications = document.getElementById('nativenotifications').checked;
+  var forcesidebarshow = document.getElementById('forcesidebarshow').checked;
 
 
   chrome.storage.sync.set({
@@ -43,7 +44,8 @@ function save_options() {
 	welcomemessage: iswelcomeMessage,
 	showimagespoiler: isshowimagespoiler,
 	interactivedialog: interactivedialog,
-	nativenotifications: nativenotifications
+	nativenotifications: nativenotifications,
+	forcesidebarshow: forcesidebarshow
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -78,6 +80,7 @@ function restore_options() {
   showimagespoiler: false,
   interactivedialog: false,
   nativenotifications: false,
+  forcesidebarshow: false,
   }, function(items) {
     document.getElementById('sidebarupdate').checked = items.sidebarupdate;
 	document.getElementById('sidebarreplace').checked = items.sidebarreplace;
@@ -100,6 +103,7 @@ function restore_options() {
 	document.getElementById('showimagespoiler').checked = items.showimagespoiler;
 	document.getElementById('interactivedialog').checked = items.interactivedialog;
 	document.getElementById('nativenotifications').checked = items.nativenotifications;
+	document.getElementById('forcesidebarshow').checked = items.forcesidebarshow;
   });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
