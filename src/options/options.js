@@ -21,6 +21,7 @@ function save_options() {
   var interactivedialog = document.getElementById('interactivedialog').checked;
   var nativenotifications = document.getElementById('nativenotifications').checked;
   var forcesidebarshow = document.getElementById('forcesidebarshow').checked;
+  var highlightporn = document.getElementById('highlightporn').checked;
 
 
   chrome.storage.sync.set({
@@ -45,7 +46,8 @@ function save_options() {
 	showimagespoiler: isshowimagespoiler,
 	interactivedialog: interactivedialog,
 	nativenotifications: nativenotifications,
-	forcesidebarshow: forcesidebarshow
+	forcesidebarshow: forcesidebarshow,
+	highlightporn: highlightporn
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -81,6 +83,7 @@ function restore_options() {
   interactivedialog: false,
   nativenotifications: false,
   forcesidebarshow: false,
+  highlightporn: false,
   }, function(items) {
     document.getElementById('sidebarupdate').checked = items.sidebarupdate;
 	document.getElementById('sidebarreplace').checked = items.sidebarreplace;
@@ -104,6 +107,7 @@ function restore_options() {
 	document.getElementById('interactivedialog').checked = items.interactivedialog;
 	document.getElementById('nativenotifications').checked = items.nativenotifications;
 	document.getElementById('forcesidebarshow').checked = items.forcesidebarshow;
+	document.getElementById('highlightporn').checked = items.highlightporn;
   });
 }
 document.addEventListener('DOMContentLoaded', restore_options);

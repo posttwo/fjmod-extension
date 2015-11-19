@@ -3,6 +3,7 @@ chrome.storage.sync.get({
 	highlightgayponies: false,
 	interactivedialog: false,
 	forcesidebarshow: false,
+	highlightporn: false,
 	
   }, function(items) {
 	if(items.showspoilers)
@@ -12,6 +13,10 @@ chrome.storage.sync.get({
 	if(items.highlightgayponies)
 	{
 		$('head').append('<link rel="stylesheet" type="text/css" href="'+ chrome.extension.getURL("css/gayponies.css") +'">');
+	}
+	if(items.highlightporn)
+	{
+		$('head').append('<link rel="stylesheet" type="text/css" href="'+ chrome.extension.getURL("css/nsfwwarning.css") +'">');
 	}
 	if(items.interactivedialog)
 	{
