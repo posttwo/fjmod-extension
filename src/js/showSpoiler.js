@@ -4,6 +4,7 @@ chrome.storage.sync.get({
 	interactivedialog: false,
 	forcesidebarshow: false,
 	highlightporn: false,
+	adminisdumb: false,
 	
   }, function(items) {
 	if(items.showspoilers)
@@ -25,5 +26,9 @@ chrome.storage.sync.get({
 	if(items.forcesidebarshow)
 	{
 		$('head').append('<link rel="stylesheet" type="text/css" href="'+ chrome.extension.getURL("css/showsidebar.css") +'">');
+	}
+	if(items.adminisdumb)
+	{
+		$('head').append('<link rel="stylesheet" type="text/css" href="'+ chrome.extension.getURL("css/adminisdumb.css") +'">');
 	}
   });

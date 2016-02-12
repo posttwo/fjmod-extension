@@ -22,7 +22,7 @@ function save_options() {
   var nativenotifications = document.getElementById('nativenotifications').checked;
   var forcesidebarshow = document.getElementById('forcesidebarshow').checked;
   var highlightporn = document.getElementById('highlightporn').checked;
-
+  var adminisdumb = document.getElementById('adminisdumb').checked;
 
   chrome.storage.sync.set({
     sidebarupdate: isSideBarUpdate,
@@ -47,7 +47,8 @@ function save_options() {
 	interactivedialog: interactivedialog,
 	nativenotifications: nativenotifications,
 	forcesidebarshow: forcesidebarshow,
-	highlightporn: highlightporn
+	highlightporn: highlightporn,
+	adminisdumb: adminisdumb
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
@@ -84,6 +85,7 @@ function restore_options() {
   nativenotifications: false,
   forcesidebarshow: false,
   highlightporn: false,
+  adminisdumb: false,
   }, function(items) {
     document.getElementById('sidebarupdate').checked = items.sidebarupdate;
 	document.getElementById('sidebarreplace').checked = items.sidebarreplace;
@@ -108,6 +110,7 @@ function restore_options() {
 	document.getElementById('nativenotifications').checked = items.nativenotifications;
 	document.getElementById('forcesidebarshow').checked = items.forcesidebarshow;
 	document.getElementById('highlightporn').checked = items.highlightporn;
+	document.getElementById('adminisdumb').checked = items.adminisdumb;
   });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
@@ -115,13 +118,6 @@ document.getElementById('save').addEventListener('click', save_options);
 
 var manifest = chrome.runtime.getManifest();
 $('#dicks').text(manifest.version);
-
-$('#updateModList').click(function(){
-		$.getJSON('https://fjmod.posttwo.pt/allmods', function(data){
-		console.log(data)
-		chrome.storage.sync.set({'modList': data}, function() {});
-	})
-});
 
 chrome.storage.local.get("registrationId", function(result) {
 	$('#messageToken').text(result.registrationId);

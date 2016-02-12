@@ -13,10 +13,17 @@ function getUrlParameter(sParam)
 }
 
 function getModList(){
-	return $.ajax({
+	var x = $.ajax({
 		type: "GET",
-		url: "https://funnyjunk.com/comment/anonymous/content/5101341/-999/checked/parent_id/undefined/1/desc/125719964"
+		url: "https://funnyjunk.com/ajax/getOnlineModList",
+		async: false,
+	}).responseText;
+	var x = JSON.parse(x);
+	var tomato = '';
+	$.each(x, function(i, item){
+		tomato = tomato + ' ' + x[i].username;
 	});
+	return tomato;
 }
 
 function requestUserBan(msg, user, activeMods)
@@ -42,14 +49,13 @@ $("#submitter").click( function()
 {
     var user = document.getElementById('username').value
     var msg = document.getElementById('msg').value;
-	getModList().done(function(data){
-			var activeMods = $(".adminComment > span", data).contents().eq(1).text();
-			var arrayOfActiveMods = activeMods.split(", ");
-			var arrayOfBannableMods = ['joshlol', 'corporate', 'EdwardNigma', 'lightarcanine', 'lucky', 'Marker', 'Pleinair', 'postingloudly', 'tridaak', 'yojo', 'admin'];
-			var arrayOfActiveBannableMods = arrayOfActiveMods.filter(function(n) {
-								return arrayOfBannableMods.indexOf(n) != -1
-							});
-			requestUserBan(msg, user, arrayOfActiveBannableMods);
-	});
+	var data = getModList();
+	var activeMods = data;
+	var arrayOfActiveMods = activeMods.split(" ");
+	var arrayOfBannableMods = ['joshlol', 'corporate', 'EdwardNigma', 'lightarcanine', 'lucky', 'Marker', 'Pleinair', 'postingloudly', 'tridaak', 'yojo', 'admin'];
+	var arrayOfActiveBannableMods = arrayOfActiveMods.filter(function(n) {
+						return arrayOfBannableMods.indexOf(n) != -1
+					});
+	requestUserBan(msg, user, arrayOfActiveBannableMods);
 }
 );

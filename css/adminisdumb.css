@@ -1,0 +1,25 @@
+.adminButtonMenu input, .adminButtonMenu span, .adminButtonMenu div {
+    width: auto !important;
+}
+.adminButtonMenu {
+    left: -1px !important;
+    position: initial !important;
+	border: 0px solid #494949 !important;
+	padding: 0 0px 0px !important;
+	display:block !important;
+}
+.myButtonToggle{
+	display:none !important;
+}
+.adminButtonMenu>div, .adminButtonMenu>span {
+    display: inline !important;
+}
+.sbtBzttn:nth-of-type(4) {
+    display:none !important;
+}
+.sbtBzttn:nth-of-type(5) {
+    display:none !important;
+}
+.sbtBzttn:nth-of-type(6) {
+    display:none !important;
+}

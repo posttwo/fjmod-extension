@@ -584,10 +584,6 @@ chrome.storage.sync.get({
 		//@ sourceMappingURL=dist/jquery.textcomplete.min.map
 		*/
         $('body').on('focus', '#replyComment', function() {
-            var modList;
-            chrome.storage.sync.get('modList', function(r) {
-                modList = r.modList;
-            })
             $('textarea').textcomplete([{ // custom
                 words: ['@welcome', '@allmods', '@activemods'],
                 match: /(^|\s)(@\w*)$/,
@@ -601,16 +597,30 @@ chrome.storage.sync.get({
                     if (word == '@welcome')
                         return items.welcomemessage;
                     if (word == '@allmods') {
-                        var s = modList.join(", ");
-                        return ' ' + s;
+                        var x = $.ajax({
+                            type: "GET",
+                            url: "https://funnyjunk.com/ajax/getModRanksList",
+                            async: false,
+                        }).responseText;
+						var x = JSON.parse(x);
+						var tomato = '';
+						$.each(x, function(i, item){
+							tomato = tomato + ' ' + x[i].username;
+						});
+                        return tomato;
                     }
                     if (word == '@activemods') {
                         var x = $.ajax({
                             type: "GET",
-                            url: "https://funnyjunk.com/comment/anonymous/content/5101341/-999/checked/parent_id/undefined/1/desc/125719964",
+                            url: "https://funnyjunk.com/ajax/getOnlineModList",
                             async: false,
                         }).responseText;
-                        return $(".adminComment > span", x).contents().eq(1).text();
+						var x = JSON.parse(x);
+						var tomato = '';
+						$.each(x, function(i, item){
+							tomato = tomato + ' ' + x[i].username;
+						});
+                        return tomato;
                     } else
                         return word + ' ';
                 }
