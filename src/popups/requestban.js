@@ -26,36 +26,39 @@ function getModList(){
 	return tomato;
 }
 
-function requestUserBan(msg, user, activeMods)
+function getUserId(username){
+	return $.ajax({
+        url: 'https://funnyjunk.com/ajax/getUserId',
+        data: {username: username},
+		async: false,
+		method: "POST",
+    }).responseText;
+	//https://funnyjunk.com/ajax/getUserId
+}
+
+function requestUserBan(msg, username, user_id, token)
 {
-	console.log(activeMods);
-    $.ajax({
+	$.ajax({
       type: "POST",
-      url: "https://funnyjunk.com/comment/add/content/4878704",
-      data: { mainid: 12, contentId: 4878704, replyCommentId: 141095274, do:"comment", username:"anonymous", text: "**Requesting Ban For: ** https://www.funnyjunk.com/user/" + user + "\n **Reason: ** " + msg + "\n **Mentions: **[spoiler]" + activeMods.join(", ") + "[/spoiler] \n Please reply to this comment once you've banned the requested user"},
+      url: "https://fjmod.posttwo.pt/banRequest/request",
+      data: { user_id: user_id, user_name: username, reason: msg, token: token },
       success: function(html){
         console.log('added note');
         window.close();
-    },
-	error: function(html){
-		alert('It did not post');
-		window.close();
-	}
+    }
 });
 }
 var user = getUrlParameter('user');
 document.getElementById('username').value = user;
 $("#submitter").click( function()
 {
-    var user = document.getElementById('username').value
+    var user_name = document.getElementById('username').value
     var msg = document.getElementById('msg').value;
-	var data = getModList();
-	var activeMods = data;
-	var arrayOfActiveMods = activeMods.split(" ");
-	var arrayOfBannableMods = ['joshlol', 'corporate', 'EdwardNigma', 'lightarcanine', 'lucky', 'Marker', 'Pleinair', 'postingloudly', 'tridaak', 'yojo', 'admin'];
-	var arrayOfActiveBannableMods = arrayOfActiveMods.filter(function(n) {
-						return arrayOfBannableMods.indexOf(n) != -1
-					});
-	requestUserBan(msg, user, arrayOfActiveBannableMods);
+	var user_id = getUserId(user_name);
+	chrome.storage.sync.get({
+        accesstoken: "",
+    }, function(items) {
+        requestUserBan(msg, user_name, user_id, items.accesstoken);
+    });
 }
 );
