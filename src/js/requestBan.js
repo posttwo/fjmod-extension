@@ -29,6 +29,8 @@ function getBanRequests()
 				modal: true,
 				resizable: false,
 				id: "flashM",
+				width: 600,
+				position:{ my: "center top", at: "center top", of: "#content" },
 				title: 'Ban Requests',
 				open: function(event, ui) { $(".ui-dialog-titlebar-close", ui.dialog | ui).hide(); },
 				buttons: {
@@ -36,7 +38,7 @@ function getBanRequests()
 						$(this).dialog("close")
 					},
 				}
-			});
+			}).parent('.ui-dialog').css('zIndex',9999);
 			$('.DENY').click(function(){
 				console.log('DENY');
 				var id = $(this).attr("data-requestid");
