@@ -8,15 +8,15 @@ module.exports = function(grunt) {
             "accounts": {
                 "default": { //account under this section will be used by default
                     publish: true, //publish item right after uploading. default false
-                    client_id: "xxx",
-                    client_secret: "yyy",
-                    refresh_token: "zzz"
+                    client_id: process.env.CLIENT_ID,
+                    client_secret: process.env.CLIENT_SECRET",
+                    refresh_token: process.env.REFRESH_TOKEN
                 }
             },
             "extensions": {
                 "myExtensionName": {
                     //required
-                    appID: "aaa",
+                    appID: process.env.APP_ID,
                     publish: true,
                     //required, we can use dir name and upload most recent zip file
                     zip: "build/" + archiveName
