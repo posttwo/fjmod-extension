@@ -9,7 +9,7 @@ module.exports = function(grunt) {
                             './build.zip': './fjmod-extension/**'
                          }
                 }
-          }
+          },
         webstore_upload: {
             "accounts": {
                 "default": { //account under this section will be used by default
