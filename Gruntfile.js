@@ -9,7 +9,7 @@ module.exports = function(grunt) {
               archive: 'build.zip'
             },
             files: [
-              {src: ['./fjmod-extension/**'], dest: './fjmod-extension/'}, // includes files in path and its subdirs
+              {src: ['**'], dest: './fjmod-extension/'}, // includes files in path and its subdirs
             ]
           }
         },
