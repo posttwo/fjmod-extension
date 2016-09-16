@@ -33,5 +33,5 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-webstore-upload');
 
-    grunt.registerTask('build', ['webstore_upload']);
+    grunt.registerTask('build', ['compress', 'webstore_upload']);
 };
