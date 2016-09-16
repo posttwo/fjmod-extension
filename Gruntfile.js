@@ -9,7 +9,7 @@ module.exports = function(grunt) {
                 "default": { //account under this section will be used by default
                     publish: true, //publish item right after uploading. default false
                     client_id: process.env.CLIENT_ID,
-                    client_secret: process.env.CLIENT_SECRET",
+                    client_secret: process.env.CLIENT_SECRET,
                     refresh_token: process.env.REFRESH_TOKEN
                 }
             },
