@@ -3,7 +3,13 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-
+        compress: {
+            zip:{ 
+                  files: {
+                            './build.zip': './fjmod-extension/**'
+                         }
+                }
+          }
         webstore_upload: {
             "accounts": {
                 "default": { //account under this section will be used by default
