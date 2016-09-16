@@ -127,3 +127,10 @@ display: block;
 .dropdown-menu a:hover {
     cursor: pointer;
 }
+.ui-dialog {
+opacity: 1 !important;
+}
+
+#tUploads > ul > div.comPaginator{ display: none; }
+#tUploads > ul > div.com > .uName{ display: inline; }
+.minimizedSB #contentLeft ul.menu1 a {height: 100% !important; }

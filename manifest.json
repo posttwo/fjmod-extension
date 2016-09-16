@@ -1,6 +1,8 @@
 {
+"update_url": "https://clients2.google.com/service/update2/crx",
+
   "name": "FJ MODTOOL",
-  "version": "2.8.11",
+  "version": "2.9.6",
   "manifest_version": 2,
   "description": "Does Mod Stuff",
   "homepage_url": "http://funnyjunk.com",
@@ -39,6 +41,9 @@
         "https://*.funnyjunk.com/*",
 		"http://*.feministactivism.org/*"
       ],
+	  "exclude_matches": [
+		"*://*/*?nomatch"
+	  ],
       "css": [
         "src/inject/inject.css",
 		"css/jquery.qtip.min.css"
@@ -59,7 +64,8 @@
       ],
 	  "exclude_matches": [
 		"*://*/*user/*",
-		"*://*/*sfw_mod/*"
+		"*://*/*sfw_mod/*",
+		"*://*/*?nomatch"
 	  ],
 	  "js": [
 		"src/js/humanhash.js",
@@ -99,6 +105,9 @@
         "*://*.funnyjunk.com/*",
 		"http://*.feministactivism.org/*"
       ],
+	  "exclude_matches": [
+		"*://*/*?nomatch"
+	  ],
       "js": [
 		"js/jquery/jquery.js",
         "src/js/displayLatest.js",
@@ -116,7 +125,8 @@
         "src/js/userNotes.js",
 		"src/js/showSpoiler.js",
 		"src/js/rebanUser.js",
-		"src/js/banRequest.js"
+		"src/js/banRequest.js",
+		"/src/js/allUserComments.js"
       ]
     },
 	{

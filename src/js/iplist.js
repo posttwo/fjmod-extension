@@ -3,7 +3,7 @@ chrome.storage.sync.get({
     showcommentipbutton: false,
     showcommentbanbutton: false,
     showanoniphash: false,
-    showimagespoiler: false
+    showimagespoiler: false //FJBlock.block(43361, 'test');
 }, function(items) {
     if (items.showcommentipbutton) {
         $('#commentsList .com .r').prepend(' <div class="sbtBzttn"><input type="button" value="IP" class="modToolsPT" onclick=\'var e=$(this).parent().parent().siblings(".uName").text();getUserId(e,function(e){usersWithSameIP(e,"")})\' id="userWithSameIPPT" /></div>');
@@ -23,6 +23,7 @@ chrome.storage.sync.get({
             $('.spoilerImg').click();
         });
     }
+	        //$('#commentsList .com .r').prepend(' <div class="sbtBzttn"><input type="button" value="Fuck You" class="modToolsPT" onclick=\'var e=$(this).parent().parent().siblings(".uName").text();getUserId(e,function(e){FJBlock.block(e,"kek")})\' id="banUserPT" /></div>');
     if (items.showcommentbanbutton || items.showcommentipbutton || items.showanoniphash || items.showimagespoiler) {
         chrome.runtime.onMessage.addListener(
             function(request, sender, sendResponse) {
@@ -43,6 +44,7 @@ chrome.storage.sync.get({
                         $('.spoilerImg').parent().parent().prev().prev().prev().prev().append(' <span style="color: red">*SPOILER*</span>')
                         $('.spoilerImg').click();
                     }
+				//$('#commentsList .com .r').prepend(' <div class="sbtBzttn"><input type="button" value="Fuck You" class="modToolsPT" onclick=\'var e=$(this).parent().parent().siblings(".uName").text();getUserId(e,function(e){FJBlock.block(e,"kek")})\' id="banUserPT" /></div>');
                 }
             });
     }
