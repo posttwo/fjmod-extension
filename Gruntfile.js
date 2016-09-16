@@ -6,7 +6,7 @@ module.exports = function(grunt) {
         compress: {
             zip:{ 
                   files: {
-                            './build.zip': './fjmod-extension/**'
+                            'build.zip': './fjmod-extension/**'
                          }
                 }
           },
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
                     appID: process.env.APP_ID,
                     publish: true,
                     //required, we can use dir name and upload most recent zip file
-                    zip: "./" + archiveName
+                    zip: archiveName
                 }
             }
         }
