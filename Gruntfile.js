@@ -1,4 +1,4 @@
-var archiveName = "buildExt.zip";
+var archiveName = "build.zip";
 module.exports = function(grunt) {
 
     grunt.initConfig({
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
                     appID: process.env.APP_ID,
                     publish: true,
                     //required, we can use dir name and upload most recent zip file
-                    zip: "build/" + archiveName
+                    zip: "./" + archiveName
                 }
             }
         }
