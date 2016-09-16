@@ -5,4 +5,4 @@ before_install: npm install -g grunt-cli grunt-webstore-upload
 install: npm install
 branches:
   only:
-  - stable
+  - master
