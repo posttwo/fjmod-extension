@@ -1,14 +1,8 @@
-
-accepted
-You can create grunt task using grunt-webstore-upload module and run it from Travis
-
-Sample Gruntfile.js:
-
 var archiveName = "buildExt.zip";
 module.exports = function(grunt) {
 
     grunt.initConfig({
-        //pkg: grunt.file.readJSON('package.json'),
+        pkg: grunt.file.readJSON('package.json'),
 
         webstore_upload: {
             "accounts": {
