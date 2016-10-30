@@ -1,6 +1,6 @@
 {
   "name": "FJ Moderator Extension [NEW BETA]",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "manifest_version": 2,
   "description": "BETA BE CAREFUL",
   "homepage_url": "http://posttwo.pt",
@@ -17,7 +17,6 @@
   },
   "permissions": [
     "contextMenus",
-    "tabs",
     "webRequest",
     "webRequestBlocking",
     "https://*.funnyjunk.com/*, https://fjmod.posttwo.pt/*"
