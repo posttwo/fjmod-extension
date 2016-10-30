@@ -1,136 +1,36 @@
-/**
- * Place your custom CSS styles here.
- **/
-.topAlertInner.nsfwCommentsPictures>.com
-{
-float: left;
-}
-.c>.comPaginator
-{
-display: none;
-}
-.c>.com
-{
-padding: 0px !important;
-}
-#alertForFlagModerators_content>.com>.t>#image_div>a>.av_img
-{
-max-height: 80px;
-}
-#alertForFlagModerators_content>.com
-{
-max-height: 130px;
-}
-/*.topAlert
-{
-position: fixed;
-bottom: 0;
-z-index: 300;
-min-width: 100%;
-margin: 0px 0px 0px 0px !important;
-}*/
-#alertForFlagModerators_content>.com>.date
-{
-display: none;
-}
-#alertForFlagModerators_content>.com>.uName
-{
-display: block;
+/* Show Spoilers */
+.PT_showSpoilers .spoiler-text {
+    color: grey !important;
+    font-style: italic;
+    line-height: 1.2em;
+    left: inherit!important;
+    border: 1px solid #252525;
+    display: inline !important;
+    position: relative!important;
+    opacity: 1 !important;
+    width: auto!important;
+    height: auto!important;
 }
 
-/* Tridaak */
-#ajax_mod_comm div[id*="comp"] {
-    height: auto ;
+/* Options */
+.PT_enabled {
+    background-color: green !important;
 }
 
-#contentLeft>.c .com {
-    background: #191919;
-    border: 1px solid #000;
-    box-shadow: 1px 1px 1px -1px #000;
-    height: auto !important;
-    margin: 5px 0px;
-    text-align: center;
-	max-width: 100%  !important;
-    min-width: 0px  !important;
-    width: auto !important;
+/* Sidebar Replacement */
+#tUploads .comPaginator{
+    display: none;
 }
-
-#contentLeft>.c .com a {
-    height: auto;
-    text-decoration: initial;
+#image_div a{
+    height: 80% !important;
 }
-
-#contentLeft>.c .com img {
-    height: initial;
-    margin: 0px;
-    max-width: 90% !important;
-    width: initial;
+#tUploads .uName{
+    display: inline !important;
 }
-
-#image_div>a>img[alt*="fund"], #image_div>a>img[alt*="kickstarter"], #image_div>a>img[alt*="indiegogo"], #image_div>a>img[alt*="rockethub"], #image_div>a>img[alt*="crowdrise"], #image_div>a>img[alt*="invested.in"], #image_div>a>img[alt*="patreon"] {
-    background: #00f;
-    margin-left: 0px;
-    padding-left: 15px;
+#tUploads .com{
+    min-width: 160px !important;
+    display: block;
 }
-
-#image_div>a>img[alt*="financial"], #image_div>a>img[alt*="money"], #image_div>a>img[alt*="help"], #image_div>a>img[alt*="donate"] {
-    background: red; /* not working, let's see some red */
-    background: -moz-linear-gradient( top ,
-        rgba(255, 0, 0, 1) 0%,
-        rgba(255, 255, 0, 1) 15%,
-        rgba(0, 255, 0, 1) 30%,
-        rgba(0, 255, 255, 1) 50%,
-        rgba(0, 0, 255, 1) 65%,
-        rgba(255, 0, 255, 1) 80%,
-        rgba(255, 0, 0, 1) 100%);
-    background: -webkit-gradient(linear,  left top,  left bottom, 
-        color-stop(0%, rgba(255, 0, 0, 1)), 
-        color-stop(15%, rgba(255, 255, 0, 1)),
-        color-stop(30%, rgba(0, 255, 0, 1)),
-        color-stop(50%, rgba(0, 255, 255, 1)),
-        color-stop(65%, rgba(0, 0, 255, 1)),
-        color-stop(80%, rgba(255, 0, 255, 1)),
-        color-stop(100%, rgba(255, 0, 0, 1)));
-    margin-left: 0px;
-    padding-left: 15px;
+.uploadBttn {
+    background-color: #8c0089 !important;
 }
-.dropdown-menu {
-    border: 1px solid #ddd;
-    background-color: white;
-	z-index: 2000 !important;
-	max-width: 200px;
-}
-
-.dropdown-menu li {
-    border-top: 1px solid #ddd;
-    padding: 2px 5px;
-}
-
-.dropdown-menu li:first-child {
-    border-top: none;
-}
-
-.dropdown-menu li:hover,
-.dropdown-menu .active {
-    background-color: rgb(110, 183, 219);
-}
-
-
-/* SHOULD not modify */
-
-.dropdown-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.dropdown-menu a:hover {
-    cursor: pointer;
-}
-.ui-dialog {
-opacity: 1 !important;
-}
-
-#tUploads > ul > div.comPaginator{ display: none; }
-#tUploads > ul > div.com > .uName{ display: inline; }
-.minimizedSB #contentLeft ul.menu1 a {height: 100% !important; }

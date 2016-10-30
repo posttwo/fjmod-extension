@@ -1,184 +1,45 @@
 {
-  "name": "FJ MODTOOL",
-  "version": "2.9.7",
+  "name": "FJ Moderator Extension [NEW BETA]",
+  "version": "3.0.0",
   "manifest_version": 2,
-  "description": "Does Mod Stuff",
-  "homepage_url": "http://funnyjunk.com",
+  "description": "BETA BE CAREFUL",
+  "homepage_url": "http://posttwo.pt",
   "icons": {
-    "16": "icons/fj16.png",
-    "48": "icons/fj48.png",
-    "128": "icons/fj128.png"
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   },
-  "default_locale": "en",
   "background": {
-    "page": "src/bg/background.html",
+    "scripts": [
+      "src/bg/background.js"
+    ],
     "persistent": true
   },
-  "options_page": "src/options/index.html",
-  "page_action": {
-    "default_icon": "icons/fj19.png",
-    "default_title": "page action demo",
-    "default_popup": "src/page_action/page_action.html"
-  },
   "permissions": [
-    "notifications",
-	"webRequest",
-	"webRequestBlocking",
-	"storage",
-    "https://*.funnyjunk.com/*",
-    "http://*.feministactivism.org/*",
-    "https://fjmod.posttwo.pt/*",
-	"*://*.fjcdn.com/*",
-	"http://*.imgur.com/*",
-	"gcm"
+    "contextMenus",
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "https://*.funnyjunk.com/*, https://fjmod.posttwo.pt/*"
   ],
   "content_scripts": [
     {
-	"run_at": "document_end",
       "matches": [
-        "https://*.funnyjunk.com/*",
-		"http://*.feministactivism.org/*"
-      ],
-	  "exclude_matches": [
-		"*://*/*?nomatch"
-	  ],
-      "css": [
-        "src/inject/inject.css",
-		"css/jquery.qtip.min.css"
-      ],
-	  "js": [
-		"src/js/uploadFuture.js",
-		"src/js/jquery.qtip.min.js",
-		"src/js/userHover.js",
-		"src/js/completer.js",
-		"src/inject/inject.js"
-	  ]
-    },
-	{
-	"run_at": "document_end",
-      "matches": [
-        "https://*.funnyjunk.com/*",
-		"http://*.feministactivism.org/*"
-      ],
-	  "exclude_matches": [
-		"*://*/*user/*",
-		"*://*/*sfw_mod/*",
-		"*://*/*?nomatch"
-	  ],
-	  "js": [
-		"src/js/humanhash.js",
-		"src/js/iplist.js"
-	  ]
-    },
-	{
-	"run_at": "document_end",
-      "matches": [
-        "https://*.funnyjunk.com/mods/allNewUsers/*"
-      ],
-	  "js": [
-		"src/js/allNewUsers.js"
-	  ]
-    },
-	{
-	"run_at": "document_end",
-      "matches": [
-        "https://*.funnyjunk.com/nsfw/*",
-		"https://*.funnyjunk.com/furry/*",
-		"https://*.funnyjunk.com/gay/*",
-		"https://*.funnyjunk.com/hentai/*",
-		"https://*.funnyjunk.com/nsfw_brony/*",
-		"https://*.funnyjunk.com/straight/*",
-		"https://*.funnyjunk.com/gay/*",
-		"https://*.funnyjunk.com/random/*",
-		"https://*.funnyjunk.com/nsfw_mod/*",
-		"http://*.feministactivism.org/*"
+        "https://*.funnyjunk.com/*"
       ],
       "css": [
-        "css/nsfw.css"
+        "src/inject/inject.css"
       ]
     },
     {
-	  "run_at": "document_start",
       "matches": [
-        "*://*.funnyjunk.com/*",
-		"http://*.feministactivism.org/*"
-      ],
-	  "exclude_matches": [
-		"*://*/*?nomatch"
-	  ],
-      "js": [
-		"js/jquery/jquery.js",
-        "src/js/displayLatest.js",
-		"src/js/displayComplaints.js",
-		"src/js/requestBan.js"
-      ]
-    },
-    {
-    "run_at": "document_start",
-      "matches": [
-        "https://*.funnyjunk.com/user/*",
-    "http://*.feministactivism.org/user/*"
+        "https://*.funnyjunk.com/*"
       ],
       "js": [
-        "src/js/userNotes.js",
-		"src/js/showSpoiler.js",
-		"src/js/rebanUser.js",
-		"src/js/banRequest.js",
-		"/src/js/allUserComments.js"
-      ]
-    },
-	{
-    "run_at": "document_end",
-      "matches": [
-        "https://*.funnyjunk.com/user/*",
-        "http://*.feministactivism.org/user/*"
+        "src/inject/inject.js"
       ],
-      "js": [
-		"src/js/rebanUser.js"
-      ]
-    },
-	{
-	  "run_at": "document_start",
-      "matches": [
-        "*://*.funnyjunk.com/*",
-		"http://*.feministactivism.org/*"
-      ],
-      "js": [
-		"src/js/showSpoiler.js"
-      ]
-    },
-	{
-	  "run_at": "document_idle",
-      "matches": [
-        "https://*.funnyjunk.com/sfw_mod/complaints/",
-		"http://*.feministactivism.org/sfw_mod/complaints/*"
-      ],
-      "js": [
-		"src/js/showComplaints.js"
-      ]
-    },
-	{
-	  "run_at": "document_start",
-      "matches": [
-		"*://*.imgur.com/*"
-      ],
-      "js": [
-	    "js/jquery/jquery.js"
-      ]
-    },
-	{
-	  "run_at": "document_end",
-      "matches": [
-		"*://*.imgur.com/*"
-      ],
-      "js": [
-		"src/js/dragImgurVideos.js"
-      ]
+      "run_at": "document_end"
     }
   ],
-  "web_accessible_resources": [
-    "src/js/*",
-	"css/*",
-	"json/*"
-  ]
+  "web_accessible_resources": ["src/js/*.js"]
 }
