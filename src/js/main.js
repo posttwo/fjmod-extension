@@ -59,6 +59,8 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('hideFlaggedContent', 'Hide Flagged Content');
     menuDialog.addOption('disableDoubleClick', 'Disable Double Click');
     menuDialog.addInput('accessToken', 'Access Token');
+
+    menuDialog.append("<br /><a href='https://github.com/posttwo/fjmod-extension/issues/new'> Report An Issue</a>");
     menuDialog.dialog({
         title: "Edit Moderator Settings",
         closeOnEscape: true,
