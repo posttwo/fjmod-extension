@@ -20,6 +20,7 @@ chrome.extension.sendMessage({}, function(response) {
 		injectIf('commentExtraButtons');
 		injectIf('removeUselessButtons')
 		injectIf('addQuickMentions');
+		injectIf('disableDoubleClick');
 		injectIfUrl('hideFlaggedContent', '/sfw_mod/');
 	}
 	}, 10);

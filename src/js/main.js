@@ -57,6 +57,7 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('addQuickMentions', 'Quick Mentions');
     menuDialog.addOption('newCommentAlert', 'Alert on AutoRefresh');
     menuDialog.addOption('hideFlaggedContent', 'Hide Flagged Content');
+    menuDialog.addOption('disableDoubleClick', 'Disable Double Click');
     menuDialog.addInput('accessToken', 'Access Token');
     menuDialog.dialog({
         title: "Edit Moderator Settings",
