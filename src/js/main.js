@@ -56,6 +56,7 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('removeUselessButtons', 'Remove Useless Buttons');
     menuDialog.addOption('addQuickMentions', 'Quick Mentions');
     menuDialog.addOption('newCommentAlert', 'Alert on AutoRefresh');
+    menuDialog.addOption('hideFlaggedContent', 'Hide Flagged Content');
     menuDialog.addInput('accessToken', 'Access Token');
     menuDialog.dialog({
         title: "Edit Moderator Settings",
