@@ -9,6 +9,24 @@ var posttwo = new function(){
             return "PT_enabled";
         return "";
     }
+    this.notify = new function () {
+        originalTitle = document.title;
+        interval = null;
+
+        this.on = function(notification)
+        {
+            interval = setInterval(function () {
+                document.title = (originalTitle == document.title)
+                    ? notification
+                    : originalTitle;
+            }, 1000);
+        }
+        this.off = function()
+        {
+            clearInterval(interval);
+            document.title = originalTitle;
+        }
+    };    
 };
 posttwo.ddd("main.js has been loaded");
 
@@ -37,6 +55,7 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('commentExtraButtons', 'Extra Buttons on Comments');
     menuDialog.addOption('removeUselessButtons', 'Remove Useless Buttons');
     menuDialog.addOption('addQuickMentions', 'Quick Mentions');
+    menuDialog.addOption('newCommentAlert', 'Alert on AutoRefresh');
     menuDialog.addInput('accessToken', 'Access Token');
     menuDialog.dialog({
         title: "Edit Moderator Settings",

@@ -14,6 +14,7 @@ chrome.extension.sendMessage({}, function(response) {
 		injectIfUrl('banRequestsForm', '/user/');
 		injectIf('banRequestsTicker');
 		injectIfUrl('userNotes', '/user/');
+		injectIfUrl('newCommentAlert', '/sfw_mod/');
 		injectIf('sideBarReplacement');
 		injectIf('showComplaints');
 		injectIf('commentExtraButtons');
