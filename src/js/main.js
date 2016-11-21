@@ -36,9 +36,10 @@ posttwo.ddd("main.js has been loaded");
 $('#contentLeft > span:nth-child(3)').after('<span style="cursor:pointer;color:#5e075b;font: 400 12px Arial, Helvetica, sans-serif;" class="smallLeftMenu" id="PT_menu"><strong>Mod Settings</strong></span>');
 $("#PT_menu").click(function () {
     
-    posttwo.ddd("Menu has been openned");
+    posttwo.ddd("Menu has been opened");
 
-    var menuDialog = $.extend($('<div id="PT_SettingsForm">Um hi.</div>'), {
+    /* <BR> <BR> MOTHERFUCKER */
+    var menuDialog = $.extend($('<div id="PT_SettingsForm">Um hi.</div><br /><br />'), {
         addOption: function (name, humanName) {
             menuDialog.append('<div class="addCommentLink PT_Toggle ' + posttwo.isEnabled(name) + '" data-name="' + name + '">' + humanName +'</div>');
         },
@@ -58,6 +59,7 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('newCommentAlert', 'Alert on AutoRefresh');
     menuDialog.addOption('hideFlaggedContent', 'Hide Flagged Content');
     menuDialog.addOption('disableDoubleClick', 'Disable Double Click');
+    menuDialog.append("<br />");
     menuDialog.addInput('accessToken', 'Access Token');
 
     menuDialog.append("<br /><a href='https://github.com/posttwo/fjmod-extension/issues/new'> Report An Issue</a>");
