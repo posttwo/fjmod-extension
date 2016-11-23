@@ -21,6 +21,7 @@ chrome.extension.sendMessage({}, function(response) {
 		injectIf('removeUselessButtons')
 		injectIf('addQuickMentions');
 		injectIf('disableDoubleClick');
+		injectIf('disableTextColor');
 		injectIfUrl('hideFlaggedContent', '/sfw_mod/');
 	}
 	}, 10);

@@ -9,6 +9,19 @@ var posttwo = new function(){
             return "PT_enabled";
         return "";
     }
+    this.getStoredArray = function(name) {
+        var z = JSON.parse(localStorage.getItem('PT_ARRAY_' + name));
+        if (z != null)
+            return z;
+        return [];
+    }
+    this.storeArray = function(name, array) {
+        localStorage.setItem("PT_ARRAY_" + name, JSON.stringify(array));
+    }
+    this.getButtonCaller = function(event) {
+        var z = $(event.target).parent().parent().parent().find('.uName:not(".avaC")').text();
+        return z.trim();
+    }
     this.notify = new function () {
         originalTitle = document.title;
         interval = null;
@@ -26,7 +39,7 @@ var posttwo = new function(){
             clearInterval(interval);
             document.title = originalTitle;
         }
-    };    
+    };
 };
 posttwo.ddd("main.js has been loaded");
 
@@ -39,7 +52,7 @@ $("#PT_menu").click(function () {
     posttwo.ddd("Menu has been opened");
 
     /* <BR> <BR> MOTHERFUCKER */
-    var menuDialog = $.extend($('<div id="PT_SettingsForm">Um hi.</div><br /><br />'), {
+    var menuDialog = $.extend($('<div id="PT_SettingsForm">'), {
         addOption: function (name, humanName) {
             menuDialog.append('<div class="addCommentLink PT_Toggle ' + posttwo.isEnabled(name) + '" data-name="' + name + '">' + humanName +'</div>');
         },
@@ -59,10 +72,11 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('newCommentAlert', 'Alert on AutoRefresh');
     menuDialog.addOption('hideFlaggedContent', 'Hide Flagged Content');
     menuDialog.addOption('disableDoubleClick', 'Disable Double Click');
-    menuDialog.append("<br />");
+    menuDialog.addOption('disableTextColor', 'Disable Colored Text');
+    menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token');
 
-    menuDialog.append("<br /><a href='https://github.com/posttwo/fjmod-extension/issues/new'> Report An Issue</a>");
+    menuDialog.append("<br /><a href='https://github.com/posttwo/fjmod-extension/issues/new'> Report An Issue</a></div>");
     menuDialog.dialog({
         title: "Edit Moderator Settings",
         closeOnEscape: true,
