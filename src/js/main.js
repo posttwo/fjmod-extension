@@ -76,7 +76,7 @@ $("#PT_menu").click(function () {
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token');
 
-    menuDialog.append("<br /><a href='https://github.com/posttwo/fjmod-extension/issues/new'> Report An Issue</a></div>");
+    menuDialog.append("<br /><a href='https://github.com/posttwo/fjmod-extension/issues/new'> Report An Issue</a> | <a href='https://fjmod.posttwo.pt/token'>Token Recovery</a></div>");
     menuDialog.dialog({
         title: "Edit Moderator Settings",
         closeOnEscape: true,
