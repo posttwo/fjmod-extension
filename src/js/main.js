@@ -73,6 +73,7 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('hideFlaggedContent', 'Hide Flagged Content');
     menuDialog.addOption('disableDoubleClick', 'Disable Double Click');
     menuDialog.addOption('disableTextColor', 'Disable Colored Text');
+    menuDialog.addOption('redirectCancer', 'Redirect Cancer');
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token');
 
