@@ -23,6 +23,7 @@ chrome.extension.sendMessage({}, function(response) {
 		injectIf('disableDoubleClick');
 		injectIf('disableTextColor');
 		injectIfUrl('hideFlaggedContent', '/sfw_mod/');
+		injectIfUrl('redirectCancer', '/cancer');
 	}
 	}, 10);
 });
