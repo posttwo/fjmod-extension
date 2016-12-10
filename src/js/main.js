@@ -74,6 +74,7 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('disableDoubleClick', 'Disable Double Click');
     menuDialog.addOption('disableTextColor', 'Disable Colored Text');
     menuDialog.addOption('redirectCancer', 'Redirect Cancer');
+    menuDialog.addOption('disableAutoplay', 'Disable Autoplay');
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token');
 
