@@ -1,8 +1,8 @@
 posttwo.ddd("commentExtraButtons.js has been loaded");
 $('#ajax_comm').arrive('.com', {existing: true}, function(){
     var el = $(this);
-    var menu = el.find('.myButtonMenu');
-    var cid = menu.data('cid');
+    var menu = el.find('.ctBox3');
+    var cid = menu.data('aid');
     var username = el.find('.uName').text().trim();
     if(username != '')
     {

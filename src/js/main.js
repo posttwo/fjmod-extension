@@ -18,8 +18,8 @@ var posttwo = new function(){
     this.storeArray = function(name, array) {
         localStorage.setItem("PT_ARRAY_" + name, JSON.stringify(array));
     }
-    this.getButtonCaller = function(event) {
-        var z = $(event.target).parent().parent().parent().find('.uName:not(".avaC")').text();
+    this.getButtonCaller = function(e) {
+        var z = $(e).parent().parent().parent().parent().find('.uName:not(".avaC")').text();
         return z.trim();
     }
     this.notify = new function () {
@@ -41,7 +41,9 @@ var posttwo = new function(){
         }
     };
     this.addModTool = function (html, cid) {
+        commA[cid] = commA[cid].slice(0, -7);
         commA[cid] += html;
+        commA[cid] += '</div> ';
     }
 };
 posttwo.ddd("main.js has been loaded");
