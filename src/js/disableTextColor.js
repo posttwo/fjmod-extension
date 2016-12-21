@@ -4,14 +4,15 @@ PT_SombraUsers = posttwo.getStoredArray('DisabledColoredText');
 
 $('#ajax_comm').arrive('.com', {existing: true}, function(){
     var el = $(this);
-    var menu = el.find('.adminButtonMenu');
+    var menu = el.find('.myButtonMenu');
+    var cid = menu.data('cid');
     var username = el.find('.uName').text().trim();
     if(username != ''){
         if ($.inArray(username, PT_SombraUsers) >= 0) {
-            menu.append('<div class="PT_EnableTextcolor">Enable Colors</div>');
+            posttwo.addModTool('<div class="PT_EnableTextcolor">Enable Colors</div>', cid);
             el.find('.t>span').css('color', 'white');
         } else {
-            menu.append('<div class="PT_DisableTextcolor">Disable Colors</div>');
+            posttwo.addModTool('<div class="PT_DisableTextcolor">Disable Colors</div>', cid);
         }    
     }
 });

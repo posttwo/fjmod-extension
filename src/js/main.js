@@ -40,6 +40,9 @@ var posttwo = new function(){
             document.title = originalTitle;
         }
     };
+    this.addModTool = function (html, cid) {
+        commA[cid] += html;
+    }
 };
 posttwo.ddd("main.js has been loaded");
 
