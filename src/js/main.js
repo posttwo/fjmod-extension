@@ -19,7 +19,7 @@ var posttwo = new function(){
         localStorage.setItem("PT_ARRAY_" + name, JSON.stringify(array));
     }
     this.getButtonCaller = function(e) {
-        var z = $(e).parent().parent().parent().parent().find('.uName:not(".avaC")').text();
+        var z = $(e).parent().parent().parent().find('.uName:not(".avaC")').text();
         return z.trim();
     }
     this.notify = new function () {
