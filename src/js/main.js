@@ -1,4 +1,3 @@
-/* Development Only Functions */
 var posttwo = new function(){
     this.ddd = function(message, color) {
         console.log("%c PT:%c " + message, 'background: red; color: black; font-weight: bolder;', 'background: white, color: black;');
@@ -41,6 +40,8 @@ var posttwo = new function(){
         }
     };
     this.addModTool = function (html, cid) {
+        if (typeof commA[cid] === 'undefined')
+            return false;    
         commA[cid] = commA[cid].slice(0, -7);
         commA[cid] += html;
         commA[cid] += '</div> ';
@@ -122,4 +123,13 @@ $("#PT_menu").click(function () {
         var current = localStorage.getItem(permissionName);
         localStorage.setItem(permissionName, $(this).val());
     })
+});
+
+//Event Listeners
+$('#ajax_comm').arrive('.com', {existing: true}, function(){
+    var el = $(this);
+    var menu = el.find('.ctBox3');
+    var cid = menu.data('aid');
+    var username = el.find('.uName').text().trim();
+    $(this).trigger('posttwo_newComment', [menu, cid, username]);    
 });

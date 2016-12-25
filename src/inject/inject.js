@@ -8,8 +8,8 @@ chrome.extension.sendMessage({}, function(response) {
 		ddd("Injecting Scripts", "white");
 		// ----------------------------------------------------------
 
-		inject('main');
 		inject('arrive');
+		inject('main');
 		injectIf('showSpoilers');
 		injectIfUrl('banRequestsForm', '/user/');
 		injectIf('banRequestsTicker');

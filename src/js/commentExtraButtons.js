@@ -1,9 +1,6 @@
 posttwo.ddd("commentExtraButtons.js has been loaded");
-$('#ajax_comm').arrive('.com', {existing: true}, function(){
-    var el = $(this);
-    var menu = el.find('.ctBox3');
-    var cid = menu.data('aid');
-    var username = el.find('.uName').text().trim();
+
+$(document).on("posttwo_newComment", function (event, menu, cid, username) {
     if(username != '')
     {
         posttwo.addModTool('<div onclick="var e = \'' + username + '\';getUserId(e,function(e){usersWithSameIP(e,\'\')});">Users With Same IP</div>', cid);
