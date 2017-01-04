@@ -81,6 +81,7 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('disableTextColor', 'Disable Colored Text');
     menuDialog.addOption('redirectCancer', 'Redirect Cancer');
     menuDialog.addOption('disableAutoplay', 'Disable Autoplay');
+    menuDialog.addOption('disableCustomCSS', 'Fuck Secretzx');
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token');
 

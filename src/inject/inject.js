@@ -24,6 +24,7 @@ chrome.extension.sendMessage({}, function(response) {
 		injectIf('disableTextColor');
 		injectIfUrl('hideFlaggedContent', '/sfw_mod/');
 		injectIfUrl('redirectCancer', '/cancer');
+		injectIfUrl('disableCustomCSS', '/bulli');
 		injectIf('disableAutoplay');
 	}
 	}, 10);
