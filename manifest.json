@@ -19,12 +19,12 @@
     "contextMenus",
     "webRequest",
     "webRequestBlocking",
-    "https://*.funnyjunk.com/*, https://fjmod.posttwo.pt/*"
+    "*://*.funnyjunk.com/*, *://fjmod.posttwo.pt/*"
   ],
   "content_scripts": [
     {
       "matches": [
-        "https://*.funnyjunk.com/*"
+        "*://*.funnyjunk.com/*"
       ],
       "css": [
         "src/inject/inject.css"
@@ -32,7 +32,7 @@
     },
     {
       "matches": [
-        "https://*.funnyjunk.com/*"
+        "*://*.funnyjunk.com/*"
       ],
       "js": [
         "src/inject/inject.js"
