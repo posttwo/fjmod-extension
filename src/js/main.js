@@ -50,40 +50,45 @@ var posttwo = new function(){
 posttwo.ddd("main.js has been loaded");
 
 /* Extension Options */
-//Add myself to the mods menu
-//$("#siteContent .adminButtonMenu").append("<div id='PT_menu'>Mod Settings</div>");
-$('#contentLeft > span:nth-child(3)').after('<span style="cursor:pointer;color:#5e075b;font: 400 12px Arial, Helvetica, sans-serif;" class="smallLeftMenu" id="PT_menu"><strong>Mod Settings</strong></span>');
+
+if (IS_FLAG_MODERATOR == true)
+    $('#contentLeft > span:nth-child(3)').after('<span style="cursor:pointer;color:#5e075b;font: 400 12px Arial, Helvetica, sans-serif;" class="smallLeftMenu" id="PT_menu"><strong>Mod Settings</strong></span>');
+else
+    $('.comOptionsMenu > .dropdown-menu').append('<span style="cursor:pointer;color:#5e075b;font: 400 12px Arial, Helvetica, sans-serif;" class="smallLeftMenu" id="PT_menu"><strong>Posttwo Settings</strong></span>');
+
 $("#PT_menu").click(function () {
     
     posttwo.ddd("Menu has been opened");
 
     /* <BR> <BR> MOTHERFUCKER */
     var menuDialog = $.extend($('<div id="PT_SettingsForm">'), {
-        addOption: function (name, humanName) {
-            menuDialog.append('<div class="addCommentLink PT_Toggle ' + posttwo.isEnabled(name) + '" data-name="' + name + '">' + humanName +'</div>');
+        addOption: function (name, humanName, modOnly) {
+            if((modOnly && IS_FLAG_MODERATOR) || !modOnly)
+                menuDialog.append('<div class="addCommentLink PT_Toggle ' + posttwo.isEnabled(name) + '" data-name="' + name + '">' + humanName +'</div>');
         },
-        addInput: function (name, humanName) {
-            menuDialog.append("<br />" + humanName + ': <input data-name="' + name +'" type="text" class="txt PT_Input" id="privMsgSubject" value="' + localStorage.getItem('PT_' + name) +'">')
+        addInput: function (name, humanName, modOnly) {
+            if((modOnly && IS_FLAG_MODERATOR) || !modOnly)
+                menuDialog.append("<br />" + humanName + ': <input data-name="' + name +'" type="text" class="txt PT_Input" id="privMsgSubject" value="' + localStorage.getItem('PT_' + name) +'">')
         }
     })
     menuDialog.addOption('showSpoilers', 'Show Spoilers');
-    menuDialog.addOption('banRequestsForm', 'Ban Requests');
-    menuDialog.addOption('banRequestsTicker', 'Ban Request Ticker');
-    menuDialog.addOption('userNotes', 'User Notes');
-    menuDialog.addOption('sideBarReplacement', 'Replace Sidebar');
-    menuDialog.addOption('showComplaints', 'Show Complaints Ticker');
-    menuDialog.addOption('commentExtraButtons', 'Extra Buttons on Comments');
-    menuDialog.addOption('removeUselessButtons', 'Remove Useless Buttons');
-    menuDialog.addOption('addQuickMentions', 'Quick Mentions');
-    menuDialog.addOption('newCommentAlert', 'Alert on AutoRefresh');
-    menuDialog.addOption('hideFlaggedContent', 'Hide Flagged Content');
+    menuDialog.addOption('banRequestsForm', 'Ban Requests', true);
+    menuDialog.addOption('banRequestsTicker', 'Ban Request Ticker', true);
+    menuDialog.addOption('userNotes', 'User Notes', true);
+    menuDialog.addOption('sideBarReplacement', 'Replace Sidebar', true);
+    menuDialog.addOption('showComplaints', 'Show Complaints Ticker', true);
+    menuDialog.addOption('commentExtraButtons', 'Extra Buttons on Comments', true);
+    menuDialog.addOption('removeUselessButtons', 'Remove Useless Buttons', true);
+    menuDialog.addOption('addQuickMentions', 'Quick Mentions', true);
+    menuDialog.addOption('newCommentAlert', 'Alert on AutoRefresh', true);
+    menuDialog.addOption('hideFlaggedContent', 'Hide Flagged Content', true);
     menuDialog.addOption('disableDoubleClick', 'Disable Double Click');
-    menuDialog.addOption('disableTextColor', 'Disable Colored Text');
+    menuDialog.addOption('disableTextColor', 'Disable Colored Text', true);
     menuDialog.addOption('redirectCancer', 'Redirect Cancer');
     menuDialog.addOption('disableAutoplay', 'Disable Autoplay');
     menuDialog.addOption('disableCustomCSS', 'Fuck Secretzx');
     menuDialog.append('<br />');
-    menuDialog.addInput('accessToken', 'Access Token');
+    menuDialog.addInput('accessToken', 'Access Token', true);
 
     menuDialog.append("<br /><a href='https://github.com/posttwo/fjmod-extension/issues/new'> Report An Issue</a> | <a href='https://fjmod.posttwo.pt/token'>Token Recovery</a></div>");
     menuDialog.dialog({
