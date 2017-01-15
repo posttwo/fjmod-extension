@@ -87,10 +87,15 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('redirectCancer', 'Redirect Cancer');
     menuDialog.addOption('disableAutoplay', 'Disable Autoplay');
     menuDialog.addOption('disableCustomCSS', 'Fuck Secretzx');
+    menuDialog.addOption('viewLatestComments', 'Latest Comments', true)
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token', true);
 
     menuDialog.append("<br /><a href='https://github.com/posttwo/fjmod-extension/issues/new'> Report An Issue</a> | <a href='https://fjmod.posttwo.pt/token'>Token Recovery</a></div>");
+    if (posttwo.isEnabled("viewLatestComments"))
+    {
+        menuDialog.append("<br /><br /><button onclick='getLatestComments(236155, 1)'> Admins Comments</button>");
+    }    
     menuDialog.dialog({
         title: "Edit Moderator Settings",
         closeOnEscape: true,
