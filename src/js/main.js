@@ -46,6 +46,18 @@ var posttwo = new function(){
         commA[cid] += html;
         commA[cid] += '</div> ';
     }
+	this.flagCommentSpam = function(commentID) {
+		$.ajax({
+			type: "POST",
+			url: "https://funnyjunk.com/ajax/flag_CommentPicture/" + commentID + "/6969",
+			data: {flag: "spam", CommentId: commentID, userId: contentId},
+			success: function(data){
+				posttwo.ddd("Flagged: " + commentID);
+				flashMessage.showSuccess("Flagged " + commentID);
+			},
+			dataType: "html"
+		});
+	}
 };
 posttwo.ddd("main.js has been loaded");
 
@@ -87,7 +99,8 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('redirectCancer', 'Redirect Cancer');
     menuDialog.addOption('disableAutoplay', 'Disable Autoplay');
     menuDialog.addOption('disableCustomCSS', 'Fuck Secretzx');
-    menuDialog.addOption('viewLatestComments', 'Latest Comments', true)
+    menuDialog.addOption('viewLatestComments', 'Latest Comments', true);
+	menuDialog.addOption('flagAllUserComments', 'Flag All By User', true);
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token', true);
 

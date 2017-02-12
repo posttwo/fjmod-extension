@@ -26,6 +26,7 @@ chrome.extension.sendMessage({}, function(response) {
 		injectIfUrl('hideFlaggedContent', '/sfw_mod/');
 		injectIfUrl('redirectCancer', '/cancer');
 		injectIfUrl('disableCustomCSS', '/bulli');
+		injectIfUrl('flagAllUserComments', '/user/');
 		injectIf('disableAutoplay');
 	}
 	}, 10);
