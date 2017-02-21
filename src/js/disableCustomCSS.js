@@ -1,2 +1,2 @@
 posttwo.ddd("disableCustomCSS.js has been loaded");
-$('head > style:nth-child(20)').remove();
+$('link[href^="/ajax/getBoardCSS"]')[0].disabled=true;
