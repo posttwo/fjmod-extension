@@ -90,13 +90,13 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('sideBarReplacement', 'Replace Sidebar', true);
     menuDialog.addOption('showComplaints', 'Show Complaints Ticker', true);
     menuDialog.addOption('commentExtraButtons', 'Extra Buttons on Comments', true);
-    menuDialog.addOption('removeUselessButtons', 'Remove Useless Buttons', true);
+    //menuDialog.addOption('removeUselessButtons', 'Remove Useless Buttons', true);
     menuDialog.addOption('addQuickMentions', 'Quick Mentions', true);
     menuDialog.addOption('newCommentAlert', 'Alert on AutoRefresh', true);
     menuDialog.addOption('hideFlaggedContent', 'Hide Flagged Content', true);
     menuDialog.addOption('disableDoubleClick', 'Disable Double Click');
     menuDialog.addOption('disableTextColor', 'Disable Colored Text', true);
-    menuDialog.addOption('redirectCancer', 'Redirect Cancer');
+    //menuDialog.addOption('redirectCancer', 'Redirect Cancer');
     menuDialog.addOption('disableAutoplay', 'Disable Autoplay');
     menuDialog.addOption('disableCustomCSS', 'Fuck Secretzx');
     menuDialog.addOption('viewLatestComments', 'Latest Comments', true);
