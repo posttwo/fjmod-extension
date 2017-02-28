@@ -1,34 +1,34 @@
 chrome.extension.sendMessage({}, function(response) {
 	var readyStateCheckInterval = setInterval(function() {
-	if (document.readyState === "complete") {
-		clearInterval(readyStateCheckInterval);
+		if (document.readyState === "complete") {
+			clearInterval(readyStateCheckInterval);
 
-		// ----------------------------------------------------------
-		// This part of the script triggers when page is done loading
-		ddd("Injecting Scripts", "white");
-		// ----------------------------------------------------------
+			// ----------------------------------------------------------
+			// This part of the script triggers when page is done loading
+			ddd("Injecting Scripts", "white");
+			// ----------------------------------------------------------
 
-		inject('arrive');
-		inject('main');
-		injectIf('viewLatestComments');
-		injectIf('showSpoilers');
-		injectIfUrl('banRequestsForm', '/user/');
-		injectIf('banRequestsTicker');
-		injectIfUrl('userNotes', '/user/');
-		injectIfUrl('newCommentAlert', '/sfw_mod/');
-		injectIf('sideBarReplacement');
-		injectIf('showComplaints');
-		injectIf('commentExtraButtons');
-		injectIf('removeUselessButtons')
-		injectIf('addQuickMentions');
-		injectIf('disableDoubleClick');
-		injectIf('disableTextColor');
-		injectIfUrl('hideFlaggedContent', '/sfw_mod/');
-		injectIfUrl('redirectCancer', '/cancer');
-		injectIfUrl('disableCustomCSS', '/bulli');
-		injectIfUrl('flagAllUserComments', '/user/');
-		injectIf('disableAutoplay');
-	}
+			inject('arrive');
+			inject('main');
+			injectIf('viewLatestComments');
+			injectIf('showSpoilers');
+			injectIfUrl('banRequestsForm', '/user/');
+			injectIf('banRequestsTicker');
+			injectIfUrl('userNotes', '/user/');
+			injectIfUrl('newCommentAlert', '/sfw_mod/');
+			injectIf('sideBarReplacement');
+			injectIf('showComplaints');
+			injectIf('commentExtraButtons');
+			injectIf('removeUselessButtons')
+			injectIf('addQuickMentions');
+			injectIf('disableDoubleClick');
+			injectIf('disableTextColor');
+			injectIfUrl('hideFlaggedContent', '/sfw_mod/');
+			injectIfUrl('redirectCancer', '/cancer');
+			injectIfUrl('disableCustomCSS', '/bulli');
+			injectIfUrl('flagAllUserComments', '/user/');
+			injectIf('disableAutoplay');
+		}
 	}, 10);
 });
 
