@@ -28,6 +28,7 @@ chrome.extension.sendMessage({}, function(response) {
 			injectIfUrl('disableCustomCSS', '/bulli');
 			injectIfUrl('flagAllUserComments', '/user/');
 			injectIf('disableAutoplay');
+			injectIf('fuckRainbows');
 		}
 	}, 10);
 });
