@@ -64,9 +64,9 @@ posttwo.ddd("main.js has been loaded");
 /* Extension Options */
 
 if (IS_FLAG_MODERATOR == true)
-    $('#contentLeft > span:nth-child(3)').after('<span style="cursor:pointer;color:#5e075b;font: 400 12px Arial, Helvetica, sans-serif;" class="smallLeftMenu" id="PT_menu"><strong>Mod Settings</strong></span>');
+    $('#contentLeft > span:nth-child(3)').replaceWith('<span style="cursor:pointer;color:#5e075b;font: 400 14px Arial, Helvetica, sans-serif;" class="smallLeftMenu" id="PT_menu"><strong>Mod Settings</strong></span>');
 else
-    $('.comOptionsMenu > .dropdown-menu').append('<span style="cursor:pointer;color:#5e075b;font: 400 12px Arial, Helvetica, sans-serif;" class="smallLeftMenu" id="PT_menu"><strong>Posttwo Settings</strong></span>');
+    $('.comOptionsMenu > .dropdown-menu').append('<span style="cursor:pointer;color:#5e075b;font: 400 14px Arial, Helvetica, sans-serif;" class="smallLeftMenu" id="PT_menu"><strong>Posttwo Settings</strong></span>');
 
 $("#PT_menu").click(function () {
     
@@ -104,7 +104,7 @@ $("#PT_menu").click(function () {
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token', true);
 
-    menuDialog.append("<br /><a href='https://github.com/posttwo/fjmod-extension/issues/new'> Report An Issue</a> | <a href='https://fjmod.posttwo.pt/token'>Token Recovery</a></div>");
+    menuDialog.append("<br /><a href='https://github.com/posttwo/fjmod-extension/issues/new'> Report An Issue</a> | <a href='https://fjmod.posttwo.pt/token'>Token Recovery</a> | <a href=\"#\" onclick=\"sessionRefresh();\">Clear cookies</a></div>");
     if (posttwo.isEnabled("viewLatestComments"))
     {
         menuDialog.append("<br /><br /><button onclick='getLatestComments(236155, 1)'> Admins Comments</button>");
