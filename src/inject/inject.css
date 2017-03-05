@@ -38,3 +38,15 @@
 .PT_Toggle {
      width: 44%;
 }
+
+#PT_MassFlagForm small,
+#PT_MassFlagForm small > a{
+    color: gray;
+}
+
+#PT_MassFlagForm > .comm{
+    margin: 3px 0;
+    padding: 3px;
+    border: solid;
+    border-width: 2px;
+}
