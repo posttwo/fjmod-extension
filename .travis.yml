@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - "0.10"
-before_install: npm install -g grunt-cli grunt-webstore-upload@0.9.10
+before_install: npm install -g grunt-cli grunt-webstore-upload@0.9.9
 install: npm install
 branches:
   only:
