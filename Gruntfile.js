@@ -23,7 +23,7 @@ module.exports = function(grunt) {
                 }
             },
             "extensions": {
-                "myExtensionName": {
+                0: {
                     //required
                     appID: process.env.APP_ID,
                     publish: true,
