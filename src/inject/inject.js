@@ -29,6 +29,7 @@ chrome.extension.sendMessage({}, function(response) {
 			injectIfUrl('flagAllUserComments', '/user/');
 			injectIf('disableAutoplay');
 			injectIf('fuckRainbows');
+			injectIf('rateBottom');
 		}
 	}, 10);
 });
