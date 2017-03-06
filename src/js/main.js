@@ -102,6 +102,7 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('viewLatestComments', 'Latest Comments', true);
 	menuDialog.addOption('flagAllUserComments', 'Flag All By User', true);
     menuDialog.addOption('fuckRainbows', 'Cum inside Rainbow Dash');
+    menuDialog.addOption('rateBottom', 'Rate my bottom', true);
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token', true);
 
