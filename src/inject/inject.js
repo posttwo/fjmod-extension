@@ -30,6 +30,7 @@ chrome.extension.sendMessage({}, function(response) {
 			injectIf('disableAutoplay');
 			injectIf('fuckRainbows');
 			injectIf('rateBottom');
+			injectIf('djTools');
 		}
 	}, 10);
 });
