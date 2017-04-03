@@ -32,7 +32,7 @@ function DJdialog(user){
     var list = $("<div>");
     for (i = 1; i < 4; i++){
         var li = $("<span>");
-        li.text($("#dj"+i).text()).attr("onclick", "addDJ(\"" + user + "\", " + i + ")").copyCSS("#dj"+i, null, ['display', 'width']).css({'display': 'block', 'margin-bottom': '6px'});
+        li.text($("#dj"+i).text()).attr("onclick", "addDJ(\"" + user + "\", " + i + "); $(this).parent().dialog('close');").copyCSS("#dj"+i, null, ['display', 'width']).css({'display': 'block', 'margin-bottom': '6px'});
         list.append(li);
     }
     list.dialog({
