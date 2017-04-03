@@ -31,6 +31,7 @@ chrome.extension.sendMessage({}, function(response) {
 			injectIf('fuckRainbows');
 			injectIf('rateBottom');
 			injectIf('djTools');
+			injectIf('djToolsPlus');
 		}
 	}, 10);
 });
