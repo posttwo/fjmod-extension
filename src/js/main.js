@@ -104,6 +104,7 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('fuckRainbows', 'Cum inside Rainbow Dash');
     menuDialog.addOption('rateBottom', 'Rate my bottom', true);
     menuDialog.addOption('djTools', 'DJ Tools');
+    menuDialog.addOption('djToolsPlus', 'Easy DJ replacer', true);
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token', true);
 
