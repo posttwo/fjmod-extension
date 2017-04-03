@@ -103,6 +103,7 @@ $("#PT_menu").click(function () {
 	menuDialog.addOption('flagAllUserComments', 'Flag All By User', true);
     menuDialog.addOption('fuckRainbows', 'Cum inside Rainbow Dash');
     menuDialog.addOption('rateBottom', 'Rate my bottom', true);
+    menuDialog.addOption('djTools', 'DJ Tools');
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token', true);
 
@@ -157,5 +158,7 @@ $('#ajax_comm').arrive('.com', {existing: true}, function(){
     var menu = el.find('.ctBox3');
     var cid = menu.data('aid');
     var username = el.find('.uName').text().trim();
-    $(this).trigger('posttwo_newComment', [menu, cid, username]);    
+    var text = el.find('.t').text();
+    var element = el;
+    $(this).trigger('posttwo_newComment', [menu, cid, username, text, el]);    
 });
