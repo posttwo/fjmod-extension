@@ -1,7 +1,11 @@
 posttwo.ddd("banRequestForm.js has been loaded");
 $('.contentTitle:first').append('<div class="sbtBzttn"><input type="button" class="modBtn" id="PT_Request_Ban_button" style="display:inline;" value="Request Ban"></div>');
 $('#PT_Request_Ban_button').click(function () {
-    var banRequestDialog = $("<form>").html('Reason: <textarea id="privMsgMessage" name="reason"></textarea>').attr({
+    // If user is banned at the moment, use this for reason
+    var cell = $("td:contains('Reason:')").text();
+    var reason = cell.substr(cell.indexOf('Reason: ')+8);
+    reason = reason.substr(0, reason.length - 1);
+    var banRequestDialog = $("<form>").html('Reason: <textarea id="privMsgMessage" name="reason">' + reason + '</textarea>').attr({
         id: "PT_BanRequestForm"
     }).submit(function (e) {
         var userName = $("#profile > div.title > h2 > span").text();
