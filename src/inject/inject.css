@@ -50,3 +50,13 @@
     border: solid;
     border-width: 2px;
 }
+
+.inner .com.faggot,
+.inner .com.faggot.selected_com{
+    background-color: #800 !important;
+}
+
+.inner .com.faggot:hover,
+.inner .com.faggot.selected_com:hover{
+    background-color: #A00 !important;
+}
