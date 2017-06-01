@@ -105,6 +105,7 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('rateBottom', 'Rate my bottom', true);
     menuDialog.addOption('djTools', 'DJ Tools');
     menuDialog.addOption('djToolsPlus', 'Easy DJ replacer', true);
+    menuDialog.addOption('first', 'Faggot catcher', true);
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token', true);
 
@@ -162,4 +163,14 @@ $('#ajax_comm').arrive('.com', {existing: true}, function(){
     var text = el.find('.t').text();
     var element = el;
     $(this).trigger('posttwo_newComment', [menu, cid, username, text, el]);    
+});
+
+$('#ajax_mod_comm').arrive('.com', {existing: true}, function(){
+    var el = $(this);
+    var menu = el.find('.ctBox3');
+    var cid = menu.data('aid');
+    var username = el.find('.uName').text().trim();
+    var text = el.find('.t').text();
+    var element = el;
+    $(this).trigger('posttwo_newModComment', [menu, cid, username, text, el]);    
 });
