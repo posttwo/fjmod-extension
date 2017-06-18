@@ -106,8 +106,10 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('djTools', 'DJ Tools');
     menuDialog.addOption('djToolsPlus', 'Easy DJ replacer', true);
     menuDialog.addOption('first', 'Faggot catcher', true);
+    menuDialog.addOption('userHistory', 'User History', true);
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token', true);
+    menuDialog.addInput('memeToken', 'Meme Token', true);
 
     menuDialog.append("<br /><a href='https://github.com/posttwo/fjmod-extension/issues/new'> Report An Issue</a> | <a href='https://fjmod.posttwo.pt/token'>Token Recovery</a> | <a href=\"#\" onclick=\"sessionRefresh();\">Clear cookies</a></div>");
     if (posttwo.isEnabled("viewLatestComments"))

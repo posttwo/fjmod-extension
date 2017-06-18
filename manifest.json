@@ -1,6 +1,6 @@
 {
   "name": "FJ Moderator Extension",
-  "version": "3.7.12",
+  "version": "3.7.13",
   "manifest_version": 2,
   "description": "Shitty toys and tweaks for moderators and users alike.",
   "homepage_url": "http://posttwo.pt",
@@ -19,7 +19,7 @@
     "contextMenus",
     "webRequest",
     "webRequestBlocking",
-    "*://*.funnyjunk.com/*, *://fjmod.posttwo.pt/*"
+    "*://*.funnyjunk.com/*, *://fjmod.posttwo.pt/*", "*://fjme.me/*"
   ],
   "content_scripts": [
     {
