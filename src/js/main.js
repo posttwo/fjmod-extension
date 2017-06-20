@@ -58,6 +58,51 @@ var posttwo = new function(){
 			dataType: "html"
 		});
 	}
+
+    this.contentQuery = function(contentId) {
+        $.ajax({
+			type: "POST",
+			url: "https://funnyjunk.com/ms/getContent/" + contentId,
+			data: {isAndroid: "true"},
+			success: function(data){
+				flashMessage.showSuccess("Thanks Boi");
+                var table = '<table border="1">';
+
+                table += '<tr><td>Content ID</td><td>' + data.id + '</td></tr>';
+                table += '<tr><td>Visiblity</td><td>' + data.content_visibility + '</td></tr>';
+                table += '<tr><td>Down Thumbs</td><td>' + data.counted_thumbs_down + '</td></tr>';
+                table += '<tr><td>UP Thumbs</td><td>' + data.counted_thumbs_up + '</td></tr>';
+                table += '<tr><td>Posted</td><td>' + data.date + '</td></tr>';
+                table += '<tr><td>MD5</td><td>' + data.filemd5hash2 + '</td></tr>';
+                table += '<tr><td>Flagged Date</td><td>' + data.flagged_date + '</td></tr>';
+                table += '<tr><td>Poster IP</td><td>' + data.ip + '</td></tr>';
+                table += '<tr><td>Reposted From</td><td>' + data.repost_content_id + '</td></tr>';
+                table += '<tr><td>Displays Ads</td><td>' + data.show_ads + '</td></tr>';
+                table += '<tr><td>Visible to Anons</td><td>' + data.visible_to_nonlogged + '</td></tr>';
+                table += '<tr><td>Hot Index</td><td>' + data.hot_index + '</td></tr>';
+                
+                
+                table += '</table>';
+                var contentQueryDialog = $("<div>").html(table).attr({
+                    id: "PT_ContentQuery"
+                })
+                contentQueryDialog.dialog({
+                    title: "Content Query",
+                    closeOnEscape: true,
+                    resizable: true,
+                    width: 'auto',
+                    minHeight: 0,
+                    buttons: {
+                        Close: function () {
+                            $(this).dialog("close")
+                        }
+                    }
+                }).parent().attr("id", "setboxthing");
+                $("div.ui-draggable").css("overflow", "visible")
+			},
+			dataType: "json"
+		});
+    }
 };
 posttwo.ddd("main.js has been loaded");
 
@@ -107,6 +152,7 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('djToolsPlus', 'Easy DJ replacer', true);
     menuDialog.addOption('first', 'Faggot catcher', true);
     menuDialog.addOption('userHistory', 'User History', true);
+    menuDialog.addOption('verboseContent', 'Verbose Content', true);
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token', true);
     menuDialog.addInput('memeToken', 'Meme Token', true);

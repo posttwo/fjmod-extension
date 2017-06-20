@@ -33,6 +33,7 @@ chrome.extension.sendMessage({}, function(response) {
 			injectIf('djTools');
 			injectIf('djToolsPlus');
 			injectIf('first');
+			injectIf('verboseContent');
 			injectIfUrl('userHistory', '/user/');
 		}
 	}, 10);
