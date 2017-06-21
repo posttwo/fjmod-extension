@@ -153,6 +153,7 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('first', 'Faggot catcher', true);
     menuDialog.addOption('userHistory', 'User History', true);
     menuDialog.addOption('verboseContent', 'Verbose Content', true);
+    menuDialog.addOption('discordResolver', 'Discord Resolver', true);
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token', true);
     menuDialog.addInput('memeToken', 'Meme Token', true);
