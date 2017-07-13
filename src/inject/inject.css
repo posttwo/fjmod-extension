@@ -34,6 +34,47 @@
 .uploadBttn {
     background-color: #8c0089 !important;
 }
+/* Hunman's fixes (replaced sidebar) begin */
+#tUploads div.com{
+    width: 100% !important;
+    height: 100% !important;
+    text-align: center;
+}
+#tUploads div.com + div.com{
+    margin-top: 6px !important;
+}
+.extendedSB #tUploads #image_div img.av_img{
+    max-width: 290px !important;
+    max-height: 290px !important;
+}
+#tUploads #image_div img.av_img{
+    max-width: 160px !important;
+    max-height: 160px !important;
+}
+#tUploads .sbtBzttn input{
+    padding: 7px;
+    font-size: 0;
+    display: inline-block;
+    position: relative;
+    bottom: 3px;
+}
+/*
+    Hiding dates, so the whole can be in one line
+    Originally wanted to show it on extended sidebar,
+    but future content is too wide
+*/
+/* body:not(.extendedSB)*/ #tUploads .date{
+    display: none;
+}
+#tUploads .sbtBzttn:after{
+    font-family: 'Glyphicons Halflings';
+    content: "\e034";
+    position: relative;
+    top: 3px;
+    right: 14px;
+    pointer-events: none;
+}
+/* Hunman's fixes end */
 
 .PT_Toggle {
      width: 44%;
