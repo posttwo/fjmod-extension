@@ -1,5 +1,5 @@
  posttwo.ddd("discordResolver.js has been loaded");
-$('.contentTitle:first').append('<div class="sbtBzttn"><input type="button" onclick="PT_GetDiscordById(contentId)" class="modBtn" id="PT_Discord_Resolve" style="display:inline;" value="Discord Resolve"></div>');
+$('.contentTitle:first').append(' <input type="button" onclick="PT_GetDiscordById(contentId)" class="modBtn" id="PT_Discord_Resolve" value="Discord Resolve">');
 
  function PT_GetDiscordById(contentId)
  {
