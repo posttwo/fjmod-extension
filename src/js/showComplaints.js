@@ -1,6 +1,8 @@
 posttwo.ddd("showComplaints.js has been loaded");
+posttwo.complaints = function(){};
+
 $('#userbarInfo ul').append( '<li class="forLogged"> <a href="/sfw_mod/complaints/" class="white no_decoration" title="complaints" id="complaints">Complaints ( <span class="green_u" id="complaints_count">0</span> )<div class="delim"></div> </li>' )
-function getComplaints()
+posttwo.complaints.getComplaints = function()
 {
 	$.ajax({
 		type:"GET",
@@ -12,5 +14,5 @@ function getComplaints()
 		}
 	});
 }
-getComplaints();
-setInterval(getComplaints, 50000);
+posttwo.complaints.getComplaints();
+setInterval(posttwo.complaints.getComplaints, 50000);

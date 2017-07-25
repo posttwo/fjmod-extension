@@ -1,4 +1,7 @@
 posttwo.ddd("djTools.js has been loaded");
+if(typeof posttwo.djTools != 'function'){
+   posttwo.djTools = function(){};
+}
 
 /*! URI.js v1.18.9 http://medialize.github.io/URI.js/ */
 /* build contains: URI.js */
@@ -58,7 +61,7 @@ c=b._parts;e=a._parts;f=b.path();a=a.path();if("/"!==f.charAt(0))throw Error("UR
 e=e.path.substring(f.length).replace(/[^\/]*$/,"").replace(/.*?\//g,"../");c.path=e+c.path.substring(f.length)||"./";return b.build()};e.equals=function(a){var b=this.clone(),c=new d(a),e;a={};var f,h;b.normalize();c.normalize();if(b.toString()===c.toString())return!0;f=b.query();e=c.query();b.query("");c.query("");if(b.toString()!==c.toString()||f.length!==e.length)return!1;b=d.parseQuery(f,this._parts.escapeQuerySpace);e=d.parseQuery(e,this._parts.escapeQuerySpace);for(h in b)if(n.call(b,h)){if(!l(b[h])){if(b[h]!==
 e[h])return!1}else if(!F(b[h],e[h]))return!1;a[h]=!0}for(h in e)if(n.call(e,h)&&!a[h])return!1;return!0};e.duplicateQueryParameters=function(a){this._parts.duplicateQueryParameters=!!a;return this};e.escapeQuerySpace=function(a){this._parts.escapeQuerySpace=!!a;return this};return d});
 
-function PT_DJ_QUEUE(url) {
+posttwo.djTools.queueVideo = function(url) {
     $('html').append('<input type="text" style="width: 95%" maxlength="100" id="ytChangeVid" class="PT_CHANGER" value="'+url+'">');
     checkYtChangeVideo(true);
     $('.PT_CHANGER').remove();
@@ -68,7 +71,7 @@ $(document).on("posttwo_newComment", function (event, menu, cid, username, text,
     {
         URI.withinString(text, function(url, start, end){
             console.log("@" + url);
-            $(el).find('.t a[title="' + url + '"]:not(".PT_DJADDED"):first').addClass('PT_DJADDED').after('<button onclick="PT_DJ_QUEUE(\''+ url +'\')" class="">Queue This Video</button>');
+            $(el).find('.t a[title="' + url + '"]:not(".PT_DJADDED"):first').addClass('PT_DJADDED').after('<button onclick="posttwo.djTools.queueVideo(\''+ url +'\')" class="">Queue This Video</button>');
             return "TEST";
         }.bind(el));
     }

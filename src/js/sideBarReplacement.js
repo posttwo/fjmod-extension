@@ -1,5 +1,7 @@
 posttwo.ddd("sideBarReplacement.js has been loaded");
-function sidebarReplacement() {
+posttwo.sidebarReplacement = function(){};
+
+posttwo.sidebarReplacement.replaceSidebar = function() {
     $.get("/sfw_mod/contents/10/1/-1000", function (data) {
         $("#tUploads").ready(function () {
             $("#tUploads").html(data);
@@ -7,5 +9,5 @@ function sidebarReplacement() {
         });
     });
 }
-sidebarReplacement();
-setInterval(sidebarReplacement, 10000);
+posttwo.sidebarReplacement.replaceSidebar();
+setInterval(posttwo.sidebarReplacement.replaceSidebar, 10000);

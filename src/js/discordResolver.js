@@ -1,7 +1,8 @@
- posttwo.ddd("discordResolver.js has been loaded");
-$('.contentTitle:first').append(' <input type="button" onclick="PT_GetDiscordById(contentId)" class="modBtn" id="PT_Discord_Resolve" value="Discord Resolve">');
+posttwo.ddd("discordResolver.js has been loaded");
+$('.contentTitle:first').append('<div class="sbtBzttn"><input type="button" onclick="posttwo.discordResolver.getDiscordById(contentId)" class="modBtn" id="PT_Discord_Resolve" style="display:inline;" value="Discord Resolve"></div>');
+posttwo.discordResolver = function(){};
 
- function PT_GetDiscordById(contentId)
+posttwo.discordResolver.getDiscordById =  function(contentId)
  {
     $.ajax({
         type: "GET",

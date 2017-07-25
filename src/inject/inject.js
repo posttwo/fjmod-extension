@@ -35,6 +35,7 @@ chrome.extension.sendMessage({}, function(response) {
 			injectIf('verboseContent');
 			injectIfUrl('userHistory', '/user/');
 			injectIfUrl('discordResolver', '/user/');
+			injectIf("disableBlurHandlers");
 		}
 	}, 10);
 });

@@ -105,7 +105,6 @@ var posttwo = new function(){
     }
 };
 posttwo.ddd("main.js has been loaded");
-
 /* Extension Options */
 
 if (IS_FLAG_MODERATOR == true)
@@ -154,6 +153,7 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('userHistory', 'User History', true);
     menuDialog.addOption('verboseContent', 'Verbose Content', true);
     menuDialog.addOption('discordResolver', 'Discord Resolver', true);
+    menuDialog.addOption('disableBlurHandlers', 'Disable Blur Handlers');
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token', true);
     menuDialog.addInput('memeToken', 'Meme Token', true);

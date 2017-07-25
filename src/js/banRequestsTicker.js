@@ -1,14 +1,17 @@
 posttwo.ddd("banRequestsTicker.js has been loaded");
+posttwo.banRequestTicker = function(){};
+
 $(document).ready(function(){
-	getAwaitingCount();
-	setInterval(getAwaitingCount, 50000);
+	posttwo.banRequestTicker.getAwaitingCount();
+	setInterval(posttwo.banRequestTicker.getAwaitingCount, 50000);
 	
 	$('#topUserbar').on('click', '#PT_BanRequest', function(){
-		getBanRequests();
+		posttwo.banRequestTicker.getBanRequests();
 		return false;
 	});
 });
-function getAwaitingCount()
+
+posttwo.banRequestTicker.getAwaitingCount = function()
 {
     $.ajax({
         type: "GET",
@@ -24,7 +27,7 @@ function getAwaitingCount()
         }
     });
 }
-function getBanRequests()
+posttwo.banRequestTicker.getBanRequests = function ()
 {
 	$.ajax({
       type: "GET",
@@ -57,21 +60,21 @@ function getBanRequests()
 			$('.DENY').click(function(){
 				console.log('DENY');
 				var id = $(this).attr("data-requestid");
-				handle(id, 'DENIED');
+				posttwo.banRequestTicker.handle(id, 'DENIED');
 			})
 			$('.OK').click(function(){
 				var id = $(this).attr("data-requestid");
-				handle(id, 'PERMITTED');
+				posttwo.banRequestTicker.handle(id, 'PERMITTED');
 			})
 		 $('.BAN').click(function(){
 				var id = $(this).attr("data-requestid");
-				handle(id, 'PERMITTED');
+				posttwo.banRequestTicker.handle(id, 'PERMITTED');
 				banUser($(this).attr("data-userid"));
 			}) 
 		}
 	});
 }
-function handle(id, type)
+posttwo.banRequestTicker.handle = function(id, type)
 {
         $.ajax({
 		  type: "POST",
