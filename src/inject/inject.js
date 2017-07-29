@@ -27,6 +27,7 @@ chrome.extension.sendMessage({}, function(response) {
 			injectIfUrl('redirectCancer', '/cancer');
 			injectIfUrl('disableCustomCSS', '/happi');
 			injectIfUrl('flagAllUserComments', '/user/');
+			injectIf('sfwRatingsAlert');
 			injectIf('disableAutoplay');
 			injectIf('fuckRainbows');
 			injectIf('rateBottom');

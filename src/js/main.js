@@ -154,6 +154,7 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('verboseContent', 'Verbose Content', true);
     menuDialog.addOption('discordResolver', 'Discord Resolver', true);
     menuDialog.addOption('disableBlurHandlers', 'Disable Blur Handlers');
+    menuDialog.addOption('sfwRatingsAlert', 'Unrated SFW Alerts');
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token', true);
     menuDialog.addInput('memeToken', 'Meme Token', true);
