@@ -32,10 +32,10 @@ chrome.extension.sendMessage({}, function(response) {
 			injectIf('rateBottom');
 			injectIf('djTools');
 			injectIf('djToolsPlus');
-			injectIf('first');
 			injectIf('verboseContent');
 			injectIfUrl('userHistory', '/user/');
 			injectIfUrl('discordResolver', '/user/');
+			injectIf("disableBlurHandlers");
 		}
 	}, 10);
 });

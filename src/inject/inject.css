@@ -3,13 +3,13 @@
     color: grey !important;
     font-style: italic;
     line-height: 1.2em;
-    left: inherit!important;
+    left: inherit !important;
     border: 1px solid #252525;
     display: inline !important;
-    position: relative!important;
+    position: relative !important;
     opacity: 1 !important;
-    width: auto!important;
-    height: auto!important;
+    width: auto !important;
+    height: auto !important;
 }
 
 /* Options */
@@ -18,33 +18,86 @@
 }
 
 /* Sidebar Replacement */
-#tUploads .comPaginator{
+#tUploads .comPaginator {
     display: none;
 }
-#image_div a{
+
+#image_div a {
     height: 80% !important;
 }
-#tUploads .uName{
+
+#tUploads .uName {
     display: inline !important;
 }
-#tUploads .com{
+
+#tUploads .com {
     min-width: 160px !important;
     display: block;
 }
+
 .uploadBttn {
     background-color: #8c0089 !important;
 }
 
+/* Hunman's fixes (replaced sidebar) begin */
+#tUploads div.com {
+    width: 100% !important;
+    height: 100% !important;
+    text-align: center;
+}
+
+#tUploads div.com + div.com {
+    margin-top: 6px !important;
+}
+
+.extendedSB #tUploads #image_div img.av_img {
+    max-width: 290px !important;
+    max-height: 290px !important;
+}
+
+#tUploads #image_div img.av_img {
+    max-width: 160px !important;
+    max-height: 160px !important;
+}
+
+#tUploads .sbtBzttn input {
+    padding: 7px;
+    font-size: 0;
+    display: inline-block;
+    position: relative;
+    bottom: 3px;
+}
+
+/*
+    Hiding dates, so the whole can be in one line
+    Originally wanted to show it on extended sidebar,
+    but future content is too wide
+*/
+
+/* body:not(.extendedSB)*/ #tUploads .date {
+    display: none;
+}
+
+#tUploads .sbtBzttn:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e034";
+    position: relative;
+    top: 3px;
+    right: 14px;
+    pointer-events: none;
+}
+/* Hunman's fixes end */
+
 .PT_Toggle {
-     width: 44%;
+    width: 44%;
 }
 
 #PT_MassFlagForm small,
-#PT_MassFlagForm small > a{
+#PT_MassFlagForm small > a {
     color: gray;
 }
 
-#PT_MassFlagForm > .comm{
+#PT_MassFlagForm > .comm {
     margin: 3px 0;
     padding: 3px;
     border: solid;
@@ -52,11 +105,28 @@
 }
 
 .inner .com.faggot,
-.inner .com.faggot.selected_com{
+.inner .com.faggot.selected_com {
     background-color: #800 !important;
 }
 
 .inner .com.faggot:hover,
-.inner .com.faggot.selected_com:hover{
+.inner .com.faggot.selected_com:hover {
     background-color: #A00 !important;
+}
+
+/* Hunman's profile button fixes */
+.contentTitle > input {
+    color: #ddd;
+    background: #333;
+    border: 2px solid #444;
+}
+
+#profile .contentTitle .sbtBzttn:first-of-type {
+    margin-left: 6px;
+}
+
+#profile .contentTitle input {
+    height: 19px;
+    line-height: .5;
+    padding: 1px 2px !important;
 }

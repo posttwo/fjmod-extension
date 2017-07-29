@@ -105,7 +105,6 @@ var posttwo = new function(){
     }
 };
 posttwo.ddd("main.js has been loaded");
-
 /* Extension Options */
 
 if (IS_FLAG_MODERATOR == true)
@@ -143,17 +142,18 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('disableTextColor', 'Disable Colored Text', true);
     //menuDialog.addOption('redirectCancer', 'Redirect Cancer');
     menuDialog.addOption('disableAutoplay', 'Disable Autoplay');
-    menuDialog.addOption('disableCustomCSS', 'Fuck Secretzx');
+    menuDialog.addOption('disableCustomCSS', 'Disable Custom CSS');
     menuDialog.addOption('viewLatestComments', 'Latest Comments', true);
 	menuDialog.addOption('flagAllUserComments', 'Flag All By User', true);
-    menuDialog.addOption('fuckRainbows', 'Cum inside Rainbow Dash');
-    menuDialog.addOption('rateBottom', 'Rate my bottom', true);
+    menuDialog.addOption('fuckRainbows', 'Disable Rainbow Text');
+    menuDialog.addOption('rateBottom', 'Move Ratings To Bottom', true);
     menuDialog.addOption('djTools', 'DJ Tools');
     menuDialog.addOption('djToolsPlus', 'Easy DJ replacer', true);
-    menuDialog.addOption('first', 'Faggot catcher', true);
+    menuDialog.addOption('first', 'Faggot Catcher', true);
     menuDialog.addOption('userHistory', 'User History', true);
     menuDialog.addOption('verboseContent', 'Verbose Content', true);
     menuDialog.addOption('discordResolver', 'Discord Resolver', true);
+    menuDialog.addOption('disableBlurHandlers', 'Disable Blur Handlers');
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token', true);
     menuDialog.addInput('memeToken', 'Meme Token', true);

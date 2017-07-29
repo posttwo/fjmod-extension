@@ -1,5 +1,5 @@
 posttwo.ddd("banRequestForm.js has been loaded");
-$('.contentTitle:first').append('<div class="sbtBzttn"><input type="button" class="modBtn" id="PT_Request_Ban_button" style="display:inline;" value="Request Ban"></div>');
+$('.contentTitle:first').append(' <input type="button" class="modBtn" id="PT_Request_Ban_button" value="Request Ban">');
 $('#PT_Request_Ban_button').click(function () {
     // If user is banned at the moment, use this for reason
     var cell = $("td:contains('Reason:')").text();

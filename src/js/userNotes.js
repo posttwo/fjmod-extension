@@ -1,9 +1,11 @@
 posttwo.ddd("userNotes.js has been loaded");
-var userName = $("#profile > div.title > h2 > span").text();
+posttwo.userNotes = function(){};
+
+posttwo.userNotes.currentUserName = $("#profile > div.title > h2 > span").text();
 $.ajax({
     type:"POST",
     dataType: "json",
-    url: "https://fjmod.posttwo.pt/notes/get/" + userName,
+    url: "https://fjmod.posttwo.pt/notes/get/" + posttwo.userNotes.currentUserName,
     data: {token: localStorage.getItem('PT_accessToken')},
     success: function(html){
         $(document).ready(function(){
@@ -13,7 +15,7 @@ $.ajax({
             });
             $("#notesbuttoner").click( function()
                 {
-                addNote();
+                posttwo.userNotes.addNote();
                 }
             );
         });
@@ -25,17 +27,17 @@ $.ajax({
         });
     }
 });
-function addNote() {
+posttwo.userNotes.addNote = function() {
     $.cachedScript(CACHED_MEDIA_URL + "site/js/0900-colorpicker.js").done(function (s, t) {
         var noteAddForm = $("<form>").html('Note: <textarea id="privMsgMessage" name="message"></textarea>Text Color: <input type="text" id="textcolor" name="color" value="#FFFFFF" class="txt mt3" style="width:120px" maxlength="7"><div class="colorpicker_submit" style="margin:0 0 -3px 2px;display:inline-block;position:static;"></div>').attr({
             id: "PT_NoteAddForm"
         }).submit(function (e) {
-            var userName = $("#profile > div.title > h2 > span").text();
+            posttwo.userNotes.currentUserName = $("#profile > div.title > h2 > span").text();
             $(this).append('<input type="hidden" name="token" value="' + localStorage.getItem('PT_accessToken') + '" /> ');
             $.ajax({
                 type: "POST",
                 //dataType: "json",
-                url: "https://fjmod.posttwo.pt/notes/post/" + userName,
+                url: "https://fjmod.posttwo.pt/notes/post/" + posttwo.userNotes.currentUserName,
                 data: $("#PT_NoteAddForm").serialize(),
                 success: function (data) {
                     flashMessage.showSuccess("Note has been added");

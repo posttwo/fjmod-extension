@@ -4,7 +4,7 @@ var place = $('#userCommentsList > .title > h2');
 if (!place.length)
 	place = $('.contentTitle:first');
 
-place.append('&nbsp;<div class="sbtBzttn" style="display: inline-block;"><input type="button" class="modBtn" id="PT_Flag_All_Button" style="display:inline;" value="Mass flag comments"></div>');
+place.append(' <input type="button" class="modBtn" id="PT_Flag_All_Button" value="Mass flag comments">');
 
 
 //Get all comments visible
