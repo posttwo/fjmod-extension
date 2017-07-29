@@ -1,7 +1,8 @@
 posttwo.ddd("sfwRatingsAlert.js has been loaded");
+posttwo.sfwRatingAlert = function(){};
 //I wanted to do this myself but I almost got stabbed by a racoon for shitty code
-var element = $(".flexModAlerts2[href='/sfw_mod/contents/']");
-var unrated = (element ? parseInt(element.text()) : 0);
+posttwo.sfwRatingsAlert.element = $(".flexModAlerts2[href='/sfw_mod/contents/']");
+posttwo.sfwRatingsAlert.unrated = (element ? parseInt(element.text()) : 0);
 
 if (unrated >= 50){
     $( "<img src='http://i.heykidwannayiff.com/aef79e.gif'>" ).insertBefore( ".flexModAlerts2:first" );
