@@ -1,5 +1,4 @@
 posttwo.ddd("sfwRatingsAlert.js has been loaded");
-
 /*
 Code fixed up by a person that doesn't want to be named because they're in the furry porn degeneracy discord server 
 */
@@ -16,3 +15,4 @@ if (unrated >= 50){
      $(".flexModAlerts2").css({"font-size": "25px", "background-image": "-webkit-linear-gradient(top,#ff4b4b,#981414)"});
     }
   }
+
