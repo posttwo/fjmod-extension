@@ -25,7 +25,7 @@ chrome.extension.sendMessage({}, function(response) {
 			injectIf('disableTextColor');
 			injectIfUrl('hideFlaggedContent', '/sfw_mod/');
 			injectIfUrl('redirectCancer', '/cancer');
-			injectIfUrl('disableCustomCSS', '/happi');
+			injectIfUrl('disableCustomCSS', '/america');
 			injectIfUrl('flagAllUserComments', '/user/');
 			injectIf('sfwRatingsAlert');
 			injectIf('disableAutoplay');
