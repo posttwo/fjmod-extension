@@ -103,6 +103,19 @@ var posttwo = new function(){
 			dataType: "json"
 		});
     }
+
+    this.parse_url = function(url){
+        var a   = document.createElement("a");
+        a.href  = url;
+        return {
+            scheme:     a.protocol,
+            host:       a.hostname,
+            porn:       a.port,
+            path:       a.pathname,
+            query:      a.search,
+            fragment:   a.hash
+        };
+    }
 };
 posttwo.ddd("main.js has been loaded");
 /* Extension Options */
@@ -155,6 +168,7 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('discordResolver', 'Discord Resolver', true);
     menuDialog.addOption('disableBlurHandlers', 'Disable Blur Handlers');
     menuDialog.addOption('sfwRatingsAlert', 'Unrated SFW Alerts');
+    menuDialog.addOption('oc', 'Enhanced OC');
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token', true);
     menuDialog.addInput('memeToken', 'Meme Token', true);
