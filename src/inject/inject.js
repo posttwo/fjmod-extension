@@ -37,6 +37,7 @@ chrome.extension.sendMessage({}, function(response) {
 			injectIfUrl('userHistory', '/user/');
 			injectIfUrl('discordResolver', '/user/');
 			injectIf("disableBlurHandlers");
+			injectIfUrl('oc', '/oc_review/');
 		}
 	}, 10);
 });
