@@ -62,12 +62,11 @@ posttwo.oc.createTable = function(data, details){
 
 	table += '<tr class="uploader"><th>Uploader</th><td class="center"><a href="/user/'+ data.username +'"><img class="avatar" src="' + (data.content_header_avatar_url ? data.content_header_avatar_url : 'https://new2.fjcdn.com/site/funnyjunk/images/def_avatar.gif') + '" alt="Link this comment to Hunman if missing"></a><br><a href="/user/'+ data.username +'"><span class="uName">' + data.username + '</span></a> <span class="cF1 '+ data.content_country_code +'"></span></td></tr>';
 	// table += '<tr class="uploader_avatar"><th>Avatar</th><td><a href="/user/'+ data.username +'"></a></td></tr>';
-	table += '<tr class="thumbs_count"><th>Thumbs</th><td><img src="https://new1.fjcdn.com/site/funnyjunk/images/profile_thumbsUp2.gif"> ' + data.stat_thumbs_up + ' <img src="https://new1.fjcdn.com/site/funnyjunk/images/profile_thumbsDown2.gif"> ' + data.stat_thumbs_down + '</td></tr>';
 	table += '<tr class="thumbs_total"><th>Total thumbs</th><td><img src="https://new1.fjcdn.com/site/funnyjunk/images/profile_thumbsUp2.gif"> ' + data.stat_thumbs_weight + '</td></tr>'; // It's on this page, so I'm assuming it's thumbs up
 	table += '<tr class="content"><th>Content</th><td class="center"><a href="' + data.base_url + '">' + data.title + '</a></td></tr>';
 	table += '<tr class="retoast"><th>Reposted?</th><td class="center">' + (data.repost_content_id ? '<strong class="repost" title="Content ID: ' + data.repost_content_id + '">yes</strong>' : 'no') + '</td></tr>';
 
-	table += '<tr class="channel"><th>Channel</th><td class="center">' + (data.channel_id ? data.channel_title : '<span class="anonUserComm">None</span>') + '</td></tr>';
+	table += '<tr class="channel"><th>Channel</th><td class="center">' + (data.channel_id ? ('<a href="' + data.channel_name + '">' + data.channel_name + '</a>') : '<span class="anonUserComm">None</span>') + '</td></tr>';
 	table += '<tr class="comments"><th>Comments</th><td class="center">' + data.comments.length + '</td></tr>';	
 	
 	if (details.approvedBy.length){
@@ -87,7 +86,7 @@ posttwo.oc.createTable = function(data, details){
 	}
 
 	if (details.actions.length){
-		// console.log(details.actions);
+		console.log(details.actions);
 		table += '<tr class="actions"><th>Actions</th><td class="center"></td></tr>';
 	}
 

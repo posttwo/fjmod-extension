@@ -12,10 +12,10 @@ chrome.extension.sendMessage({}, function(response) {
 			inject('main');
 			injectIf('viewLatestComments');
 			injectIf('showSpoilers');
-			injectIfUrl('banRequestsForm', '/user/');
+			injectIfUrl('banRequestsForm', '/user');
 			injectIf('banRequestsTicker');
-			injectIfUrl('userNotes', '/user/');
-			injectIfUrl('newCommentAlert', '/sfw_mod/');
+			injectIfUrl('userNotes', '/user');
+			injectIfUrl('newCommentAlert', '/sfw_mod');
 			injectIf('sideBarReplacement');
 			injectIf('showComplaints');
 			injectIf('commentExtraButtons');
@@ -23,10 +23,10 @@ chrome.extension.sendMessage({}, function(response) {
 			injectIf('addQuickMentions');
 			injectIf('disableDoubleClick');
 			injectIf('disableTextColor');
-			injectIfUrl('hideFlaggedContent', '/sfw_mod/');
+			injectIfUrl('hideFlaggedContent', '/sfw_mod');
 			injectIfUrl('redirectCancer', '/cancer');
 			injectIfUrl('disableCustomCSS', '/america');
-			injectIfUrl('flagAllUserComments', '/user/');
+			injectIfUrl('flagAllUserComments', '/user');
 			injectIf('sfwRatingsAlert');
 			injectIf('disableAutoplay');
 			injectIf('fuckRainbows');
@@ -34,10 +34,10 @@ chrome.extension.sendMessage({}, function(response) {
 			injectIf('djTools');
 			injectIf('djToolsPlus');
 			injectIf('verboseContent');
-			injectIfUrl('userHistory', '/user/');
-			injectIfUrl('discordResolver', '/user/');
+			injectIfUrl('userHistory', '/user');
+			injectIfUrl('discordResolver', '/user');
 			injectIf("disableBlurHandlers");
-			injectIfUrl('oc', '/oc_review/');
+			injectIfUrl('oc', '/oc_review');
 		}
 	}, 10);
 });
