@@ -159,3 +159,19 @@ input.modBtn[value="Deny"]{
     background-color: #a00;
 }
 /* Enhanced OC ends */
+
+/* Ratings at bottom */
+.PT_bottomRate:first-of-type{
+    display: inline-block;
+    text-align: left;
+}
+
+.PT_bottomRate:last-of-type{
+    margin-bottom: 6px;
+}
+
+.PT_bottomRate .modF{
+    position: static;
+    max-width: none;
+    z-index: auto;
+}

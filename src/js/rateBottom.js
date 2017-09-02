@@ -1,13 +1,13 @@
 posttwo.ddd("rateBottom.js has been loaded");
 
 // Skin + PC rating go before thumbs
-$('#ctInfo').children().first().before('<div style="display: inline-block; text-align: left;"></div>');
+$('#ctInfo').children().first().before('<div class="PT_bottomRate"></div>');
+$('#ctInfo').children().last().after('<div class="PT_bottomRate"></div>');
 $("#siteContent").children().each(function(index, element){
 	if (element.id == 'catControls')
 		return false;
-	$('#ctInfo').children().first().append(element);
+	$('.PT_bottomRate').first().append(element);
 });
 
 // Category ratings go under thumbs
-$('#ctDetails').after($('#catControls'));
-$('#catControls').css('margin-bottom', '6px');
+$('.PT_bottomRate').last().append($("#catControls"));
