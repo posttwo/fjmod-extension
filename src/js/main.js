@@ -152,9 +152,9 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('newCommentAlert', 'Alert on AutoRefresh', true);
     menuDialog.addOption('hideFlaggedContent', 'Hide Flagged Content', true);
     menuDialog.addOption('disableDoubleClick', 'Disable Double Click');
-    menuDialog.addOption('disableTextColor', 'Disable Colored Text', true);
     //menuDialog.addOption('redirectCancer', 'Redirect Cancer');
     menuDialog.addOption('disableAutoplay', 'Disable Autoplay');
+    menuDialog.addOption('disableTextColor', 'Disable Colored Text', true);
     menuDialog.addOption('disableCustomCSS', 'Disable Custom CSS');
     menuDialog.addOption('viewLatestComments', 'Latest Comments', true);
 	menuDialog.addOption('flagAllUserComments', 'Flag All By User', true);

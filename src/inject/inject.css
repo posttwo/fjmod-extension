@@ -131,31 +131,18 @@
     padding: 1px 2px !important;
 }
 
-/* Enhanced OC by Hunman */
-.OCtable{
-    vertical-align: top;
+/* Ratings at bottom */
+.PT_bottomRate:first-of-type{
+    display: inline-block;
+    text-align: left;
 }
-.OCtable td.center,
-.OCtable td.center *{
-    text-align: center;
+
+.PT_bottomRate:last-of-type{
+    margin-bottom: 6px;
 }
-.OCtable td img{
-    vertical-align: middle;
+
+.PT_bottomRate .modF{
+    position: static;
+    max-width: none;
+    z-index: auto;
 }
-.OCtable .avatar{
-    padding-bottom: 6px;
-}
-.OCtable strong.repost,
-.t strong.warning{
-    text-transform: uppercase;
-    color: red;
-}
-.OCtable ul{
-    -webkit-padding-start: 30px;
-}input.modBtn[value="Approve"]{
-    background-color: #0a0;
-}
-input.modBtn[value="Deny"]{
-    background-color: #a00;
-}
-/* Enhanced OC ends */
