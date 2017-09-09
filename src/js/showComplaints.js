@@ -15,4 +15,4 @@ posttwo.complaints.getComplaints = function()
 	});
 }
 posttwo.complaints.getComplaints();
-setInterval(posttwo.complaints.getComplaints, 50000);
+setInterval(posttwo.complaints.getComplaints, 500000);
