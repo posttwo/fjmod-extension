@@ -115,22 +115,11 @@
 }
 
 /* Hunman's profile button fixes */
-.contentTitle > input {
-    color: #ddd;
-    background: #333;
-    border: 2px solid #444;
-}
+
 
 #profile .contentTitle .sbtBzttn:first-of-type {
     margin-left: 6px;
 }
-
-#profile .contentTitle input {
-    height: 19px;
-    line-height: .5;
-    padding: 1px 2px !important;
-}
-
 /* Enhanced OC by Hunman */
 .OCtable{
     vertical-align: top;
