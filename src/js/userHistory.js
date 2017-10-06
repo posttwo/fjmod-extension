@@ -1,6 +1,6 @@
 posttwo.ddd("userHistory.js has been loaded");
 $('.contentTitle:first').append(' <input type="button" class="modBtn" id="PT_View_History" value="History">');
-$('#PT_View_History').click(function () {
+$(document).on("click",'#PT_View_History',function () {
     var userName = $("#profile > div.title > h2 > span").text();
     $.ajax({
             type: "GET",
