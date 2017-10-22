@@ -10,6 +10,7 @@ chrome.extension.sendMessage({}, function(response) {
 
 			inject('arrive');
 			inject('main');
+			inject('toolkit');
 			injectIf('viewLatestComments');
 			injectIf('showSpoilers');
 			injectIfUrl('banRequestsForm', '/user');
