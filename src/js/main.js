@@ -169,6 +169,7 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('disableBlurHandlers', 'Disable Blur Handlers');
     menuDialog.addOption('sfwRatingsAlert', 'Unrated SFW Alerts');
     menuDialog.addOption('oc', 'Enhanced OC');
+    menuDialog.addOption('stringFlag', 'Comment String Flag');
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token', true);
     menuDialog.addInput('memeToken', 'Meme Token', true);
