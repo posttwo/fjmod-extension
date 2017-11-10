@@ -23,7 +23,7 @@ chrome.extension.onMessage.addListener(
     },
     {
       urls: [
-          "https://www.funnyjunk.com/mods/removeModAccess/*",
+          "https://funnyjunk.com/mods/removeModAccess/*",
       ],
       types: ["main_frame", "sub_frame", "stylesheet", "script", "image", "object", "xmlhttprequest", "other"]
     },
