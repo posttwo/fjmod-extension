@@ -33,7 +33,7 @@ posttwo.userNotes.addNote = function() {
             id: "PT_NoteAddForm"
         }).submit(function (e) {
             posttwo.userNotes.currentUserName = $("#profile > div.title > h2 > span").text();
-            $(this).append('<input type="hidden" name="token" value="' + localStorage.getItem('PT_accessToken') + '" /> ');
+            $("#PT_NoteAddForm").append('<input type="hidden" name="token" value="' + localStorage.getItem('PT_accessToken') + '" /> ');
             $.ajax({
                 type: "POST",
                 //dataType: "json",
@@ -41,12 +41,15 @@ posttwo.userNotes.addNote = function() {
                 data: $("#PT_NoteAddForm").serialize(),
                 success: function (data) {
                     flashMessage.showSuccess("Note has been added");
+                    location.reload();
                 },
                 error: function (data) {
+                    console.log(data);
                     flashMessage.showSuccess("Note addition failed");
                 }
             });
-            e.preventDefault();
+            e.preventDefault(e);
+            return false;
         })
         noteAddForm.dialog({
             title: "Add a Note",
@@ -58,8 +61,7 @@ posttwo.userNotes.addNote = function() {
                 Submit: function () {
                     $("#PT_NoteAddForm").trigger("submit");
                     $(this).dialog("close")
-                    location.reload();
-                    return false
+                    return false;
                 },
                 Close: function () {
                     $(this).dialog("close")

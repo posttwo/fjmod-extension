@@ -1,4 +1,4 @@
-chrome.extension.sendMessage({}, function(response) {
+chrome.runtime.sendMessage({}, function(response) {
 	var readyStateCheckInterval = setInterval(function() {
 		if (document.readyState === "complete") {
 			clearInterval(readyStateCheckInterval);
@@ -9,41 +9,55 @@ chrome.extension.sendMessage({}, function(response) {
 			// ----------------------------------------------------------
 
 			inject('arrive');
-			inject('main');
-			inject('toolkit');
-			injectIf('viewLatestComments');
-			injectIf('showSpoilers');
-			injectIfUrl('banRequestsForm', '/user');
-			injectIf('banRequestsTicker');
-			injectIfUrl('userNotes', '/user');
-			injectIfUrl('newCommentAlert', '/sfw_mod');
-			injectIf('sideBarReplacement');
-			injectIf('showComplaints');
-			injectIf('commentExtraButtons');
-			injectIf('removeUselessButtons')
-			injectIf('addQuickMentions');
-			injectIf('disableDoubleClick');
-			injectIf('disableTextColor');
-			injectIfUrl('hideFlaggedContent', '/sfw_mod');
-			injectIfUrl('redirectCancer', '/cancer');
-			injectIfUrl('disableCustomCSS', '/america');
-			injectIfUrl('flagAllUserComments', '/user');
-			injectIf('sfwRatingsAlert');
-			injectIf('disableAutoplay');
-			injectIf('fuckRainbows');
-			injectIf('rateBottom');
-			injectIf('djTools');
-			injectIf('djToolsPlus');
-			injectIf('verboseContent');
-			injectIfUrl('userHistory', '/user');
-			injectIfUrl('discordResolver', '/user');
-			injectIf("disableBlurHandlers");
-			injectIf('stringFlag');
-			injectIfUrl('oc', '/oc_review');
+			injectSpecialBoi('main');
 		}
 	}, 10);
 });
 
+//Firefox is a special boi
+function injectTheRest(){
+	inject('toolkit');
+	injectIf('viewLatestComments');
+	injectIf('showSpoilers');
+	injectIfUrl('banRequestsForm', '/user');
+	injectIf('banRequestsTicker');
+	injectIfUrl('userNotes', '/user');
+	injectIfUrl('newCommentAlert', '/sfw_mod');
+	injectIf('sideBarReplacement');
+	injectIf('showComplaints');
+	injectIf('commentExtraButtons');
+	injectIf('removeUselessButtons')
+	injectIf('addQuickMentions');
+	injectIf('disableDoubleClick');
+	injectIf('disableTextColor');
+	injectIfUrl('hideFlaggedContent', '/sfw_mod');
+	injectIfUrl('redirectCancer', '/cancer');
+	injectIfUrl('disableCustomCSS', '/america');
+	injectIfUrl('flagAllUserComments', '/user');
+	injectIf('sfwRatingsAlert');
+	injectIf('disableAutoplay');
+	injectIf('fuckRainbows');
+	injectIf('rateBottom');
+	injectIf('djTools');
+	injectIf('djToolsPlus');
+	injectIf('verboseContent');
+	injectIfUrl('userHistory', '/user');
+	injectIfUrl('discordResolver', '/user');
+	injectIf("disableBlurHandlers");
+	injectIf('stringFlag');
+	injectIfUrl('oc', '/oc_review');
+}
+
+function injectSpecialBoi(name){
+	ddd("Special Injecting for Retarded Browsers: " + name, 'lightgreen');
+	var s = document.createElement('script');
+		s.src = chrome.extension.getURL('src/js/' + name + '.js');
+		s.onload = function() {
+			injectTheRest();
+			console.log("Firefox is retarded: " + name);
+		};
+		(document.head || document.documentElement).appendChild(s);
+}
 /* Injection Functions */
 function injectIf(name) {
 	if (isEnabled(name))
