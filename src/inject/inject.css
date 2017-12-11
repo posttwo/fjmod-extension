@@ -12,6 +12,12 @@
     height: auto !important;
 }
 
+#PT_menu{
+    cursor: pointer;
+    color: #5e075b;
+    font-weight: bold;
+}
+
 /* Options */
 .PT_enabled {
     background-color: green !important;

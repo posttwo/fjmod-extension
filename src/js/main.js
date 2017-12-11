@@ -120,10 +120,7 @@ var posttwo = new function(){
 posttwo.ddd("main.js has been loaded");
 /* Extension Options */
 
-if (IS_FLAG_MODERATOR == true)
-    $('#contentLeft > span:nth-child(3)').replaceWith('<span style="cursor:pointer;color:#5e075b;font: 400 14px Arial, Helvetica, sans-serif;" class="smallLeftMenu" id="PT_menu"><strong>Mod Settings</strong></span>');
-else
-    $('.comOptionsMenu > .dropdown-menu').append('<span style="cursor:pointer;color:#5e075b;font: 400 14px Arial, Helvetica, sans-serif;" class="smallLeftMenu" id="PT_menu"><strong>Posttwo Settings</strong></span>');
+$('#topM a:first()').replaceWith('<a class="smallLeftMenu mIte" id="PT_menu">' + (IS_FLAG_MODERATOR == true ? 'Mod Settings' : 'Addon Settings') + '</a>');
 
 $("#PT_menu").click(function () {
     
