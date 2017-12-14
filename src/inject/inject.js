@@ -39,6 +39,7 @@ chrome.extension.sendMessage({}, function(response) {
 			injectIfUrl('discordResolver', '/user');
 			injectIf("disableBlurHandlers");
 			injectIf('stringFlag');
+			injectIf('contentHelp');
 			injectIfUrl('oc', '/oc_review');
 		}
 	}, 10);

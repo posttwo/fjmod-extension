@@ -167,6 +167,7 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('sfwRatingsAlert', 'Unrated SFW Alerts');
     menuDialog.addOption('oc', 'Enhanced OC');
     menuDialog.addOption('stringFlag', 'Comment String Flag');
+    menuDialog.addOption('contentHelp', 'Content Help');    
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token', true);
     menuDialog.addInput('memeToken', 'Meme Token', true);
