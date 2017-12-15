@@ -15,6 +15,10 @@ $('.contentContainer').on('click', '.postHelp', function(event){
         imageId = $('.cImg').attr('id');
     }
     let imageUrl = $(parent).attr('data-cachedimgsrc');
+    if(imageUrl == undefined)
+    {
+        imageUrl = $(parent).attr('href');
+    }    
 
     //cUrl contentId
     console.log({imageId, imageUrl, cUrl, contentId});
