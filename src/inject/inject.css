@@ -12,6 +12,12 @@
     height: auto !important;
 }
 
+#PT_menu{
+    cursor: pointer;
+    color: #5e075b;
+    font-weight: bold;
+}
+
 /* Options */
 .PT_enabled {
     background-color: green !important;
@@ -115,18 +121,52 @@
 }
 
 /* Hunman's profile button fixes */
-.contentTitle > input {
-    color: #ddd;
-    background: #333;
-    border: 2px solid #444;
-}
+
 
 #profile .contentTitle .sbtBzttn:first-of-type {
     margin-left: 6px;
 }
+/* Enhanced OC by Hunman */
+.OCtable{
+    vertical-align: top;
+}
+.OCtable td.center,
+.OCtable td.center *{
+    text-align: center;
+}
+.OCtable td img{
+    vertical-align: middle;
+}
+.OCtable .avatar{
+    padding-bottom: 6px;
+}
+.OCtable strong.repost,
+.t strong.warning{
+    text-transform: uppercase;
+    color: red;
+}
+.OCtable ul{
+    -webkit-padding-start: 30px;
+}input.modBtn[value="Approve"]{
+    background-color: #0a0;
+}
+input.modBtn[value="Deny"]{
+    background-color: #a00;
+}
+/* Enhanced OC ends */
 
-#profile .contentTitle input {
-    height: 19px;
-    line-height: .5;
-    padding: 1px 2px !important;
+/* Ratings at bottom */
+.PT_bottomRate:first-of-type{
+    display: inline-block;
+    text-align: left;
+}
+
+.PT_bottomRate:last-of-type{
+    margin-bottom: 6px;
+}
+
+.PT_bottomRate .modF{
+    position: static;
+    max-width: none;
+    z-index: auto;
 }

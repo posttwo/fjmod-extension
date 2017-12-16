@@ -103,14 +103,24 @@ var posttwo = new function(){
 			dataType: "json"
 		});
     }
+
+    this.parse_url = function(url){
+        var a   = document.createElement("a");
+        a.href  = url;
+        return {
+            scheme:     a.protocol,
+            host:       a.hostname,
+            porn:       a.port,
+            path:       a.pathname,
+            query:      a.search,
+            fragment:   a.hash
+        };
+    }
 };
 posttwo.ddd("main.js has been loaded");
 /* Extension Options */
 
-if (IS_FLAG_MODERATOR == true)
-    $('#contentLeft > span:nth-child(3)').replaceWith('<span style="cursor:pointer;color:#5e075b;font: 400 14px Arial, Helvetica, sans-serif;" class="smallLeftMenu" id="PT_menu"><strong>Mod Settings</strong></span>');
-else
-    $('.comOptionsMenu > .dropdown-menu').append('<span style="cursor:pointer;color:#5e075b;font: 400 14px Arial, Helvetica, sans-serif;" class="smallLeftMenu" id="PT_menu"><strong>Posttwo Settings</strong></span>');
+$('#topM a:first()').replaceWith('<a class="smallLeftMenu mIte" id="PT_menu">' + (IS_FLAG_MODERATOR == true ? 'Mod Settings' : 'Addon Settings') + '</a>');
 
 $("#PT_menu").click(function () {
     
@@ -139,9 +149,9 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('newCommentAlert', 'Alert on AutoRefresh', true);
     menuDialog.addOption('hideFlaggedContent', 'Hide Flagged Content', true);
     menuDialog.addOption('disableDoubleClick', 'Disable Double Click');
-    menuDialog.addOption('disableTextColor', 'Disable Colored Text', true);
     //menuDialog.addOption('redirectCancer', 'Redirect Cancer');
     menuDialog.addOption('disableAutoplay', 'Disable Autoplay');
+    menuDialog.addOption('disableTextColor', 'Disable Colored Text', true);
     menuDialog.addOption('disableCustomCSS', 'Disable Custom CSS');
     menuDialog.addOption('viewLatestComments', 'Latest Comments', true);
 	menuDialog.addOption('flagAllUserComments', 'Flag All By User', true);
@@ -155,6 +165,9 @@ $("#PT_menu").click(function () {
     menuDialog.addOption('discordResolver', 'Discord Resolver', true);
     menuDialog.addOption('disableBlurHandlers', 'Disable Blur Handlers');
     menuDialog.addOption('sfwRatingsAlert', 'Unrated SFW Alerts');
+    menuDialog.addOption('oc', 'Enhanced OC');
+    menuDialog.addOption('stringFlag', 'Comment String Flag');
+    menuDialog.addOption('contentHelp', 'Content Help');    
     menuDialog.append('<br />');
     menuDialog.addInput('accessToken', 'Access Token', true);
     menuDialog.addInput('memeToken', 'Meme Token', true);

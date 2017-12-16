@@ -17,3 +17,15 @@ chrome.extension.onMessage.addListener(
     },
     ["blocking"]
 );
+  chrome.webRequest.onBeforeRequest.addListener(
+    function (details) {
+      return {redirectUrl: "https://niceme.me"};
+    },
+    {
+      urls: [
+          "https://funnyjunk.com/mods/removeModAccess/*",
+      ],
+      types: ["main_frame", "sub_frame", "stylesheet", "script", "image", "object", "xmlhttprequest", "other"]
+    },
+    ["blocking"]
+);

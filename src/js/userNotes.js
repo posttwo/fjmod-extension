@@ -28,7 +28,7 @@ $.ajax({
     }
 });
 posttwo.userNotes.addNote = function() {
-    $.cachedScript(CACHED_MEDIA_URL + "site/js/0900-colorpicker.js").done(function (s, t) {
+    $.cachedScript(CACHED_MEDIA_URL + "site/js/extra/0900-colorpicker.js").done(function (s, t) {
         var noteAddForm = $("<form>").html('Note: <textarea id="privMsgMessage" name="message"></textarea>Text Color: <input type="text" id="textcolor" name="color" value="#FFFFFF" class="txt mt3" style="width:120px" maxlength="7"><div class="colorpicker_submit" style="margin:0 0 -3px 2px;display:inline-block;position:static;"></div>').attr({
             id: "PT_NoteAddForm"
         }).submit(function (e) {
