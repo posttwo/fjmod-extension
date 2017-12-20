@@ -172,11 +172,7 @@ $("#PT_menu").click(function () {
     menuDialog.addInput('accessToken', 'Access Token', true);
     menuDialog.addInput('memeToken', 'Meme Token', true);
 
-    menuDialog.append("<br /><a href='https://github.com/posttwo/fjmod-extension/issues/new'> Report An Issue</a> | <a href='https://fjmod.posttwo.pt/token'>Token Recovery</a> | <a href=\"#\" onclick=\"sessionRefresh();\">Clear cookies</a></div>");
-    if (posttwo.isEnabled("viewLatestComments"))
-    {
-        menuDialog.append("<br /><br /><button onclick='getLatestComments(236155, 1)'> Admins Comments</button>");
-    }    
+    menuDialog.append("<br /> <button onclick='posttwo.oauth.login()'>FJMeme Login</button> | <a href=\"#\" onclick=\"sessionRefresh();\">Clear cookies</a></div>");
     menuDialog.dialog({
         title: "Edit Moderator Settings",
         closeOnEscape: true,
