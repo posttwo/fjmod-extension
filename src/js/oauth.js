@@ -5,8 +5,7 @@ if(typeof posttwo.oauth != 'function'){
  }
 
 posttwo.oauth.login = function(){
-    let OAUTHURL    =   'http://fjme.me/oauth/authorize?';
-    let VALIDURL    =   'http://www.googleapis.com/oauth2/v1/tokeninfo?access_token=';
+    let OAUTHURL    =   'https://fjme.me/oauth/authorize?';
     let SCOPE       =   'fjapi-userinfo-basic fjapi-userinfo-mod discord-post-modhelp fjmod-token';
     let CLIENTID    =   '5';
     let REDIRECT    =   'https://funnyjunk.com'
@@ -33,7 +32,7 @@ posttwo.oauth.login = function(){
                 $.ajax({
                     type: "GET",
                     dataType: "json",
-                    url: "http://fjme.me/api/mods/notetoken",
+                    url: "https://fjme.me/api/mods/notetoken",
                     headers: { 'Authorization': 'Bearer ' + localStorage.getItem('PT_memeToken') },
                     success: function(data){
                         console.log(data);
