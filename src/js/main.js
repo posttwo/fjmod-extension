@@ -120,7 +120,11 @@ var posttwo = new function(){
 posttwo.ddd("main.js has been loaded");
 /* Extension Options */
 
+/* Regular sidebar injection code */
 $('#topM a:first()').replaceWith('<a class="smallLeftMenu mIte" id="PT_menu">' + (IS_FLAG_MODERATOR == true ? 'Mod Settings' : 'Addon Settings') + '</a>');
+
+/* Extended sidebar injection code */
+$('#topME a:first()').replaceWith('<a class="smallLeftMenu mIte" id="PT_menu">' + (IS_FLAG_MODERATOR == true ? 'Mod Settings' : 'Addon Settings') + '</a>');
 
 $("#PT_menu").click(function () {
     
