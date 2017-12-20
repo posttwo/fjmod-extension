@@ -7,7 +7,7 @@ if(typeof posttwo.oauth != 'function'){
 posttwo.oauth.login = function(){
     let OAUTHURL    =   'https://fjme.me/oauth/authorize?';
     let SCOPE       =   'fjapi-userinfo-basic fjapi-userinfo-mod discord-post-modhelp fjmod-token';
-    let CLIENTID    =   '5';
+    let CLIENTID    =   '3';
     let REDIRECT    =   'https://funnyjunk.com'
     let TYPE        =   'token';
     let _url        =   OAUTHURL + 'scope=' + SCOPE + '&client_id=' + CLIENTID + '&redirect_uri=' + REDIRECT + '&response_type=' + TYPE;
