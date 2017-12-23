@@ -1,4 +1,5 @@
 posttwo.ddd("commentExtraButtons.js has been loaded");
+posttwo.requireArrive();
 
 $(document).on("posttwo_newComment", function (event, menu, cid, username) {
     if(username != '')

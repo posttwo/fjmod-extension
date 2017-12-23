@@ -2,6 +2,13 @@ var posttwo = new function(){
     this.ddd = function(message, color) {
         console.log("%c PT:%c " + message, 'background: red; color: black; font-weight: bolder;', 'background: white, color: black;');
     };
+    this.requireArrive = function(){
+        if(typeof Arrive == "undefined")
+        {
+            dialog.alert("Posttwo Extension", "Please enable arrive");
+            throw new Error("Required function not found!");            
+        }
+    }
     this.isEnabled = function (name) {
         var x = localStorage.getItem('PT_' + name);
         if (x == "true")

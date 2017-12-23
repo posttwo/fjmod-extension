@@ -1,3 +1,8 @@
+try{
+(function(){
+if(window.location.href.indexOf("/user") == -1) {
+	return false;
+}
 posttwo.ddd("flagAllComments.js has been loaded");
 
 var place = $('#userCommentsList > .title > h2');
@@ -64,3 +69,7 @@ $('#PT_Flag_All_Button').click(function(){
 });
 
 //$('a#89').parent().find('.ctBox3').attr('data-aid')
+})();
+} catch (e) {
+	alert("YOU DUMB FUCK");
+}

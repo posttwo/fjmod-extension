@@ -1,7 +1,12 @@
+(function(){
+if(window.location.href.indexOf("/oc_review") == -1) {
+	return false;
+}
 posttwo.ddd("oc.js has been loaded");
 if (typeof posttwo.oc != 'function')
    posttwo.oc = function(){};
 
+posttwo.requireArrive();
 posttwo.oc.createImg = function(id, json){
 	var pic = false;
 	switch (json.type_name){
@@ -125,3 +130,4 @@ $(document).on("posttwo_newComment", function (event, menu, cid, username, text,
 		});
 	}
 });
+})();
