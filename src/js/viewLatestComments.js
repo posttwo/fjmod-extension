@@ -4,7 +4,7 @@ posttwo.ddd("viewLatestComments.js has been loaded");
 $(document).on("posttwo_newComment", function (event, menu, cid, username) {
     if(username != '')
     {
-        posttwo.addModTool('<div onclick="var e = \'' + username + '\';getUserId(e,function(e){getLatestComments(e,1)});">Latest Comments</div>', cid);
+        posttwo.addModTool('<div onclick="getLatestComments(posttwo.getUserId(\'' + username + '\',1));">Latest Comments</div>', cid);
     }
 });
 

@@ -24,6 +24,22 @@ var posttwo = new function(){
     this.storeArray = function(name, array) {
         localStorage.setItem("PT_ARRAY_" + name, JSON.stringify(array));
     }
+    this.getUserId = function(uName) {
+        var html;
+        $.ajax({
+            url: '/commapp/getUserInfo',
+            type: 'post',
+            async: false, // Pause until response
+            data: {
+                username: uName
+            },
+            dataType: 'html',
+            success: function(data) {
+                html = data;
+            }
+        });
+        return $(html).data('userid');
+    }
     this.getButtonCaller = function(e) {
         var z = $(e).parent().parent().parent().find('.uName:not(".avaC")').text();
         return z.trim();
@@ -48,10 +64,8 @@ var posttwo = new function(){
     };
     this.addModTool = function (html, cid) {
         if (typeof commA[cid] === 'undefined')
-            return false;    
-        commA[cid] = commA[cid].slice(0, -7);
-        commA[cid] += html;
-        commA[cid] += '</div> ';
+            return false;
+        commA[cid] = $(commA[cid]).append($(html));
     }
 	this.flagCommentSpam = function(commentID) {
 		$.ajax({
